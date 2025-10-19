@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# プロジェクト固有
+.claude/
+*.log
+*.tmp
+
+# 生成されたファイル（必要に応じてコメントアウト）
+# shops_data.json
+# shops_data_corrected.json
+# shops_list.html
