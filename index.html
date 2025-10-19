@@ -41,6 +41,13 @@
             opacity: 0.95;
         }
 
+        .date-note {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
         .filter-section {
             background-color: white;
             padding: 1.5rem;
@@ -245,7 +252,30 @@
         
         /* 印刷用CSS */
         @media print {
-            header, .filter-section, .action-buttons, footer {
+            header {
+                background: none !important;
+                color: #333 !important;
+                padding: 0.5rem 0 1rem !important;
+                border-bottom: 2px solid #333;
+            }
+
+            header h1 {
+                font-size: 1.3rem !important;
+                margin-bottom: 0.25rem !important;
+                color: #333 !important;
+            }
+
+            header .lead {
+                display: none !important;
+            }
+
+            .date-note {
+                font-size: 0.75rem !important;
+                color: #666 !important;
+                opacity: 1 !important;
+            }
+
+            .filter-section, .action-buttons, footer {
                 display: none !important;
             }
             
@@ -316,6 +346,7 @@
         <div class="container">
             <h1>ウェブベルマーク 掲載ショップ一覧</h1>
             <p class="lead">お買い物をしながら、学校を応援できます</p>
+            <p class="date-note">2025年10月現在</p>
         </div>
     </header>
 
