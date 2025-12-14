@@ -26,7 +26,7 @@ def parse_shops():
     
     shops_by_category = defaultdict(list)
     
-    with open('Companies Nov 17 2025_fixed.csv', 'r', encoding='utf-8') as file:
+    with open('20251210_companies_fixed.csv', 'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
             if row['is_valid'] == '1' and row['delete_flag'] == '0':

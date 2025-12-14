@@ -49,6 +49,13 @@ html_content = '''<!DOCTYPE html>
             opacity: 0.95;
         }
 
+        .date-note {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
         .filter-section {
             background-color: white;
             padding: 1.5rem;
@@ -319,6 +326,7 @@ html_content = '''<!DOCTYPE html>
         <div class="container">
             <h1>ウェブベルマーク 掲載ショップ一覧</h1>
             <p class="lead">お買い物をしながら、学校を応援できます</p>
+            <p class="date-note">2025年12月現在</p>
         </div>
     </header>
 
@@ -569,7 +577,7 @@ html_content += '''
             
             // タイトルを追加
             const printTitle = document.createElement('div');
-            printTitle.innerHTML = '<h1 style="text-align: center; margin-bottom: 20px;">ウェブベルマーク 掲載ショップ一覧</h1>';
+            printTitle.innerHTML = '<h1 style="text-align: center; margin-bottom: 5px;">ウェブベルマーク 掲載ショップ一覧</h1><p style="text-align: center; margin-bottom: 20px; font-size: 0.9rem; color: #666;">2025年12月現在</p>';
             printTitle.style.display = 'none';
             printTitle.classList.add('print-title');
             document.body.insertBefore(printTitle, document.body.firstChild);
@@ -624,7 +632,7 @@ html_content += '''
 '''
 
 # HTMLファイルを保存
-with open('shops_list.html', 'w', encoding='utf-8') as f:
+with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("shops_list.htmlを生成しました")
+print("index.htmlを生成しました")

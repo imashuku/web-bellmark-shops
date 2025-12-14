@@ -252,30 +252,7 @@
         
         /* 印刷用CSS */
         @media print {
-            header {
-                background: none !important;
-                color: #333 !important;
-                padding: 0.5rem 0 1rem !important;
-                border-bottom: 2px solid #333;
-            }
-
-            header h1 {
-                font-size: 1.3rem !important;
-                margin-bottom: 0.25rem !important;
-                color: #333 !important;
-            }
-
-            header .lead {
-                display: none !important;
-            }
-
-            .date-note {
-                font-size: 0.75rem !important;
-                color: #666 !important;
-                opacity: 1 !important;
-            }
-
-            .filter-section, .action-buttons, footer {
+            header, .filter-section, .action-buttons, footer {
                 display: none !important;
             }
             
@@ -307,32 +284,27 @@
             
             .shop-card {
                 display: inline-block !important;
-                width: 31.5% !important;
-                margin: 0 0.75% 8px !important;
+                width: 48% !important;
+                margin: 0 1% 10px !important;
                 page-break-inside: avoid;
                 vertical-align: top;
                 box-shadow: none !important;
                 border: 1px solid #ddd !important;
-                padding: 8px !important;
+                padding: 10px !important;
             }
             
             .shop-name {
-                font-size: 0.75rem !important;
+                font-size: 0.9rem !important;
             }
-
+            
             .shop-description {
-                font-size: 0.6rem !important;
-                line-height: 1.2 !important;
+                font-size: 0.7rem !important;
+                line-height: 1.3 !important;
             }
-
+            
             .shop-reward {
-                font-size: 0.65rem !important;
-                padding: 4px !important;
-            }
-
-            .recommended-badge {
-                font-size: 0.5rem !important;
-                padding: 2px 4px !important;
+                font-size: 0.8rem !important;
+                padding: 5px !important;
             }
             
             body {
@@ -346,7 +318,7 @@
         <div class="container">
             <h1>ウェブベルマーク 掲載ショップ一覧</h1>
             <p class="lead">お買い物をしながら、学校を応援できます</p>
-            <p class="date-note">2025年11月現在</p>
+            <p class="date-note">2025年12月現在</p>
         </div>
     </header>
 
@@ -367,18 +339,9 @@
                 <div class="category-section" data-category="総合通販・百貨店">
                     <div class="category-header">
                         <h2>総合通販・百貨店</h2>
-                        <span class="shop-count">28件</span>
+                        <span class="shop-count">27件</span>
                     </div>
                     <div class="shops-grid">
-
-                        <div class="shop-card recommended" data-name="アスクル">
-                            <span class="recommended-badge">おすすめ</span>
-                            <h3 class="shop-name">アスクル</h3>
-                            <p class="shop-description">「明日来るからアスクル（ASKUL）」ーオフィスに必要なモノやサービスを「明日お届けする」法人のお客様向け通販サービスです。約750万点以上の品揃え、当日または翌日以降お届け、法人は1000円以上(税込)で送料無料※一部商品除く</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.89%</span>
-                            </div>
-                        </div>
 
                         <div class="shop-card recommended" data-name="yahoo!ショッピング">
                             <span class="recommended-badge">おすすめ</span>
@@ -1192,7 +1155,7 @@
                 <div class="category-section" data-category="食品・飲料・グルメ予約">
                     <div class="category-header">
                         <h2>食品・飲料・グルメ予約</h2>
-                        <span class="shop-count">17件</span>
+                        <span class="shop-count">16件</span>
                     </div>
                     <div class="shops-grid">
 
@@ -1238,15 +1201,6 @@
                             <p class="shop-description">サンクゼール（St.Cousair）&amp;久世福商店のオンラインショッププログラムでございます！お中元や内祝い、ギフトやちょっとしたプレゼントにも!おいしいものがとことん揃ったショップ、どんなシーンにも活用できる、それがサンクゼールオンラインショップです♪</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入金額の 4.00%</span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="よなよなの里">
-                            
-                            <h3 class="shop-name">よなよなの里</h3>
-                            <p class="shop-description">クラフトビールの王道「よなよなエール」をはじめとし、バラエティ豊かなクラフトビールを製造・販売するヤッホーブルーイングの公式通販サイト。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
                             </div>
                         </div>
 
@@ -1527,7 +1481,7 @@
                 <div class="category-section" data-category="スポーツ・アウトドア">
                     <div class="category-header">
                         <h2>スポーツ・アウトドア</h2>
-                        <span class="shop-count">22件</span>
+                        <span class="shop-count">21件</span>
                     </div>
                     <div class="shops-grid">
 
@@ -1666,15 +1620,6 @@
                             </div>
                         </div>
 
-                        <div class="shop-card " data-name="ファイテン公式通販">
-                            
-                            <h3 class="shop-name">ファイテン公式通販</h3>
-                            <p class="shop-description">スポーツだけでなく、あらゆる人々の健康維持をサポートしているファイテン（phiten）。トップアスリートやタレントなど多くの著名人も愛用するファイテン商品は、世界各国で特許を取得した、独自の技術と素材で作られています。数ある商品の中でも人気なのがRAKUWAネックシリーズで、累計販売総数4000万本！(※2019年1月時点)また、より手軽に使えてより体感を得られるセルフボディケアアイテムとして誕生したのがメタックスシリーズ。塗る・貼るだけの簡単ケアアイテムとして、多くの人に愛されています。独自の技術は年々進化し、健康を支える様々なジャンルの商品を生み出し続けています。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.09%</span>
-                            </div>
-                        </div>
-
                         <div class="shop-card " data-name="自転車ショップ【cyma-サイマ-】">
                             
                             <h3 class="shop-name">自転車ショップ【cyma-サイマ-】</h3>
@@ -1735,7 +1680,7 @@
                 <div class="category-section" data-category="インテリア・生活雑貨・ペット用品">
                     <div class="category-header">
                         <h2>インテリア・生活雑貨・ペット用品</h2>
-                        <span class="shop-count">15件</span>
+                        <span class="shop-count">14件</span>
                     </div>
                     <div class="shops-grid">
 
@@ -1824,15 +1769,6 @@
                             
                             <h3 class="shop-name">グリーンパン オフィシャルショップ</h3>
                             <p class="shop-description">世界で初めてフッ素樹脂を使わないフライパンを開発したベルギー生まれの「グリーンパン」公式オンラインショップです。 良質な食材を選ぶように、調理器具にもこだわって欲しい。 地球にやさしい、エコなフライパンです。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="腰痛対策マットレスモットン">
-                            
-                            <h3 class="shop-name">腰痛対策マットレスモットン</h3>
-                            <p class="shop-description">現役32年間を中日ドラゴンズ一筋で活躍してきた球界のレジェンド「山本昌さん」愛用の高反発マットレス「モットン」</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入完了で 4.00%</span>
                             </div>
@@ -2661,18 +2597,9 @@
                 <div class="category-section" data-category="その他">
                     <div class="category-header">
                         <h2>その他</h2>
-                        <span class="shop-count">4件</span>
+                        <span class="shop-count">3件</span>
                     </div>
                     <div class="shops-grid">
-
-                        <div class="shop-card " data-name="ベネッセこども基金　安全教室開催支援">
-                            
-                            <h3 class="shop-name">ベネッセこども基金　安全教室開催支援</h3>
-                            <p class="shop-description">ベネッセ（Benesse）こども基金では45分の安全教室を実施するための投影資料や講師用のシナリオと、子ども向けの冊子を無償でご提供いたします。これらを使用して、先生や保護者の皆様から、子どもたちに防犯や情報モラルについてお伝えいただくと、ポイントが自動加算されます。また被災校にも支援金が送られます。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">１校申込みにつき 1500点</span>
-                            </div>
-                        </div>
 
                         <div class="shop-card " data-name="バリューコマース株式会社(ecサイト募集)">
                             
@@ -2860,7 +2787,7 @@
             
             // タイトルを追加
             const printTitle = document.createElement('div');
-            printTitle.innerHTML = '<h1 style="text-align: center; margin-bottom: 5px;">ウェブベルマーク 掲載ショップ一覧</h1><p style="text-align: center; margin-bottom: 20px; font-size: 0.9rem; color: #666;">2025年11月現在</p>';
+            printTitle.innerHTML = '<h1 style="text-align: center; margin-bottom: 5px;">ウェブベルマーク 掲載ショップ一覧</h1><p style="text-align: center; margin-bottom: 20px; font-size: 0.9rem; color: #666;">2025年12月現在</p>';
             printTitle.style.display = 'none';
             printTitle.classList.add('print-title');
             document.body.insertBefore(printTitle, document.body.firstChild);

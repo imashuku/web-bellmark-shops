@@ -25,8 +25,56 @@ python3 recategorize_shops.py
 
 ### データフロー
 ```
-Companies Oct 9 2025.csv → parse_csv.py → shops_data.json → generate_html.py → shops_list.html
+新規CSV → fix_csv.py → *_fixed.csv → parse_csv.py → shops_data.json → generate_html.py → index.html
 ```
+
+## 月次更新手順
+
+毎月新しいCSVファイルがアップロードされた後、以下の手順で更新します。
+
+### 1. CSVファイルの修正
+CSVファイルには改行文字が含まれている場合があるため、まず修正が必要です。
+
+```bash
+# fix_csv.py のファイル名を更新
+# input_file = '新しいCSVファイル名.csv'
+# output_file = '新しいCSVファイル名_fixed.csv'
+
+python3 fix_csv.py
+```
+
+### 2. parse_csv.py のファイル名を更新
+```python
+# 29行目付近を修正
+with open('新しいCSVファイル名_fixed.csv', 'r', encoding='utf-8') as file:
+```
+
+```bash
+python3 parse_csv.py
+```
+
+### 3. generate_html.py の日付を更新
+```python
+# 329行目付近: ヘッダーの日付
+<p class="date-note">2025年○月現在</p>
+
+# 580行目付近: 印刷用タイトルの日付
+printTitle.innerHTML = '...2025年○月現在...'
+```
+
+```bash
+python3 generate_html.py
+```
+
+### 4. Vercelにデプロイ
+```bash
+vercel --prod --yes
+```
+
+### 更新時の確認ポイント
+- 店舗数が妥当か確認（通常200〜250店舗程度）
+- fix_csv.py実行後の「有効レコード数」を確認
+- index.htmlの日付表記が正しいか確認
 
 ## アーキテクチャ
 
@@ -66,4 +114,9 @@ Companies Oct 9 2025.csv → parse_csv.py → shops_data.json → generate_html.
 
 ## 現在の出力
 
-メイン成果物は `shops_list.html` - Webサーバーなしでブラウザで直接開ける完全なスタンドアロンWebページです。
+メイン成果物は `index.html` - Webサーバーなしでブラウザで直接開ける完全なスタンドアロンWebページです。
+
+## デプロイ先
+
+- **Vercel**: https://web-bellmark-shops.vercel.app
+- **GitHubリポジトリ**: https://github.com/imashuku/web-bellmark-shops
