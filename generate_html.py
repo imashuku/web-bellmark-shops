@@ -33,6 +33,34 @@ for category, shops in shops_data.items():
 top_shops_percent = sorted(all_shops_percent, key=lambda x: x['rate_float'], reverse=True)[:10]
 top_shops_points = sorted(all_shops_points, key=lambda x: x['rate_float'], reverse=True)[:10]
 
+# 小学生の保護者向けのカテゴリ順序を定義
+category_order = [
+    "総合通販・百貨店",
+    "教育用品",
+    "教育・学習サービス",
+    "本・音楽・ゲーム",
+    "キッズ・ベビー・おもちゃ",
+    "ファッション・アパレル",
+    "食品・飲料・グルメ予約",
+    "美容・コスメ・健康",
+    "スポーツ・アウトドア",
+    "インテリア・生活雑貨・ペット用品",
+    "家電・PC・カメラ",
+    "旅行・宿泊予約",
+    "フラワー・ギフト",
+    "レジャー・エンタメ・体験",
+    "動画配信サービス",
+    "サービス・その他",
+    "買取・中古品販売",
+    "その他"
+]
+
+# カテゴリ数を計算
+category_count = len([c for c in shops_data.keys() if c in category_order])
+
+# おすすめショップ数を計算
+recommend_count = len([s for shops in shops_data.values() for s in shops if s.get('is_recommend')])
+
 # HTMLを生成
 html_content = '''<!DOCTYPE html>
 <html lang="ja">
@@ -51,109 +79,238 @@ html_content = '''<!DOCTYPE html>
             font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
             line-height: 1.7;
             color: #1a1a1a;
-            background-color: #fff;
+            background-color: #f5f5f7;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        /* ヘッダー */
-        header {
-            background-color: #1e3a5f;
+        /* Bento Grid ヒーローセクション */
+        .bento-hero {
+            padding: 32px 0;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 16px;
+        }
+
+        .bento-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* メインカード（店舗数表示） */
+        .bento-main {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
             color: white;
-            padding: 48px 0 40px;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            min-height: 280px;
         }
 
-        header h1 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
+        .bento-main h1 {
+            font-size: 1.25rem;
             font-weight: 500;
-            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
         }
 
-        .hero-subtitle {
-            font-size: 0.875rem;
+        .bento-main .hero-subtitle {
+            font-size: 0.8125rem;
             opacity: 0.8;
-            margin-bottom: 24px;
-            font-weight: 300;
+            margin-bottom: 20px;
         }
 
-        .hero-number {
-            font-size: 3.5rem;
-            font-weight: 600;
+        .bento-main .hero-number {
+            font-size: 5rem;
+            font-weight: 700;
             line-height: 1;
-            margin-bottom: 4px;
-            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
         }
 
-        .hero-number-label {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            letter-spacing: 0.1em;
+        .bento-main .hero-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            letter-spacing: 0.15em;
         }
 
-        .date-note {
+        .bento-main .date-note {
             font-size: 0.75rem;
             opacity: 0.5;
-            margin-top: 24px;
+            margin-top: 20px;
         }
 
-        /* 検索・フィルター */
-        .filter-section {
-            padding: 24px 0;
-            border-bottom: 1px solid #e5e5e5;
-            margin-bottom: 32px;
+        /* 還元率TOP5カード */
+        .bento-ranking {
+            grid-column: span 2;
+            background: #fff;
         }
 
-        #searchBox {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px 16px;
-            border: 1px solid #d0d0d0;
-            border-radius: 4px;
-            font-size: 0.9375rem;
+        .bento-ranking .ranking-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .bento-ranking .ranking-subtitle {
+            font-size: 0.6875rem;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+
+        .ranking-item:hover {
+            background: #eef1f4;
+        }
+
+        .ranking-num {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #1e3a5f;
+            min-width: 24px;
+        }
+
+        .ranking-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ranking-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ranking-category {
+            font-size: 0.625rem;
+            color: #888;
+        }
+
+        .ranking-rate {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #c41e3a;
+            white-space: nowrap;
+        }
+
+        .ranking-rate .unit {
+            font-size: 0.6875rem;
+        }
+
+        /* 検索カード */
+        .bento-search {
+            grid-column: span 2;
+            background: #fff;
+            justify-content: center;
+        }
+
+        .bento-search .search-label {
+            font-size: 0.75rem;
+            color: #888;
             margin-bottom: 12px;
-            transition: border-color 0.2s;
         }
 
-        #searchBox:focus {
+        .bento-search #searchBox {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            font-size: 0.9375rem;
+            transition: border-color 0.2s;
+            background: #f8f9fa;
+        }
+
+        .bento-search #searchBox:focus {
             outline: none;
             border-color: #1e3a5f;
+            background: #fff;
         }
 
-        .filter-options {
-            font-size: 0.875rem;
+        .bento-search .filter-options {
+            margin-top: 12px;
+            font-size: 0.8125rem;
             color: #555;
         }
 
-        .filter-options label {
+        .bento-search .filter-options label {
             display: inline-flex;
             align-items: center;
             cursor: pointer;
         }
 
-        .filter-options input[type="checkbox"] {
+        .bento-search .filter-options input[type="checkbox"] {
             margin-right: 8px;
             width: 16px;
             height: 16px;
         }
 
-        /* カテゴリ */
+        /* 統計カード */
+        .bento-stat {
+            background: #fff;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .bento-stat .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a5f;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .bento-stat .stat-label {
+            font-size: 0.6875rem;
+            color: #888;
+        }
+
+        /* カテゴリセクション */
+        .shops-section {
+            padding: 32px 0;
+        }
+
         .category-section {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .category-header {
             display: flex;
-            align-items: baseline;
+            align-items: center;
             gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 16px;
         }
 
         .category-header h2 {
@@ -164,7 +321,10 @@ html_content = '''<!DOCTYPE html>
 
         .shop-count {
             color: #888;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
+            background: #e5e5e5;
+            padding: 2px 10px;
+            border-radius: 12px;
         }
 
         /* ショップグリッド */
@@ -176,37 +336,37 @@ html_content = '''<!DOCTYPE html>
 
         .shop-card {
             background-color: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 6px;
+            border-radius: 16px;
             padding: 20px;
-            transition: border-color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
         }
 
         .shop-card:hover {
-            border-color: #1e3a5f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
 
         .shop-card.recommended {
-            border-color: #1e3a5f;
-            background-color: #f8fafc;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+            border: 2px solid #1e3a5f;
         }
 
         .recommended-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
+            top: 16px;
+            right: 16px;
             background-color: #1e3a5f;
             color: white;
-            padding: 2px 10px;
-            border-radius: 3px;
-            font-size: 0.6875rem;
-            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.625rem;
+            font-weight: 600;
             letter-spacing: 0.05em;
         }
 
         .shop-name {
-            font-size: 1rem;
+            font-size: 0.9375rem;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 8px;
@@ -219,24 +379,26 @@ html_content = '''<!DOCTYPE html>
         }
 
         .shop-description {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: #666;
             line-height: 1.6;
             margin-bottom: 16px;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
         .shop-reward {
-            padding: 12px 0 0;
-            border-top: 1px solid #eee;
+            background: #f8f9fa;
+            padding: 12px 14px;
+            border-radius: 10px;
+            text-align: center;
         }
 
         .reward-rate {
             color: #1a1a1a;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
         }
 
         .reward-rate .rate-number {
@@ -249,107 +411,65 @@ html_content = '''<!DOCTYPE html>
         .reward-rate .rate-unit {
             color: #c41e3a;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.875rem;
         }
 
-        /* 高還元ショップセクション */
-        .top-shops-section {
-            margin-bottom: 48px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid #e5e5e5;
+        /* レスポンシブ */
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-main {
+                grid-column: span 2;
+                grid-row: span 1;
+                min-height: 200px;
+            }
+
+            .bento-main .hero-number {
+                font-size: 4rem;
+            }
+
+            .bento-ranking {
+                grid-column: span 2;
+            }
+
+            .bento-search {
+                grid-column: span 2;
+            }
+
+            .bento-stat {
+                grid-column: span 1;
+            }
         }
 
-        .top-shops-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-        }
-
-        .top-shops-column .section-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
-        }
-
-        .top-shops-column .section-desc {
-            font-size: 0.75rem;
-            color: #888;
-            margin-bottom: 16px;
-        }
-
-        .top-shops-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .top-shop-card {
-            background-color: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 6px;
-            padding: 12px 16px;
-            transition: border-color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .top-shop-card:hover {
-            border-color: #1e3a5f;
-        }
-
-        .top-shop-rank {
-            font-size: 0.75rem;
-            color: #888;
-            min-width: 32px;
-        }
-
-        .top-shop-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .top-shop-name {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            line-height: 1.3;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .top-shop-category {
-            font-size: 0.6875rem;
-            color: #888;
-        }
-
-        .top-shop-rate {
-            color: #c41e3a;
-            font-weight: 700;
-            font-size: 1.125rem;
-            white-space: nowrap;
-        }
-
-        .top-shop-rate .rate-unit {
-            font-size: 0.75rem;
-        }
-
-        @media (max-width: 768px) {
-            .top-shops-row {
+        @media (max-width: 600px) {
+            .bento-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+            }
+
+            .bento-main,
+            .bento-ranking,
+            .bento-search,
+            .bento-stat {
+                grid-column: span 1;
+            }
+
+            .bento-main .hero-number {
+                font-size: 3.5rem;
+            }
+
+            .shops-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         /* フッター */
         footer {
-            background-color: #f5f5f5;
+            background-color: #e5e5e7;
             color: #888;
             text-align: center;
-            padding: 24px 0;
-            margin-top: 64px;
+            padding: 32px 0;
             font-size: 0.75rem;
         }
 
@@ -360,7 +480,7 @@ html_content = '''<!DOCTYPE html>
             right: 24px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
             z-index: 999;
         }
 
@@ -368,18 +488,20 @@ html_content = '''<!DOCTYPE html>
             background-color: #1e3a5f;
             color: white;
             border: none;
-            padding: 10px 16px;
-            border-radius: 4px;
+            padding: 12px 20px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 0.8125rem;
-            transition: background-color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(30,58,95,0.3);
         }
 
         .action-btn:hover {
-            background-color: #2d4a6f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(30,58,95,0.4);
         }
 
         .share-menu {
@@ -387,13 +509,12 @@ html_content = '''<!DOCTYPE html>
             bottom: 100%;
             right: 0;
             background-color: white;
-            border: 1px solid #e5e5e5;
-            border-radius: 6px;
-            padding: 8px;
-            margin-bottom: 8px;
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 12px;
             display: none;
-            min-width: 180px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 200px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
 
         .share-menu.show {
@@ -403,9 +524,9 @@ html_content = '''<!DOCTYPE html>
         .share-option {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 4px;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.15s;
             text-decoration: none;
@@ -417,42 +538,18 @@ html_content = '''<!DOCTYPE html>
             background-color: #f5f5f5;
         }
 
-        /* レスポンシブ */
-        @media (max-width: 600px) {
-            header {
-                padding: 36px 0 32px;
-            }
-
-            header h1 {
-                font-size: 1.25rem;
-            }
-
-            .hero-number {
-                font-size: 2.5rem;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            .shops-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .action-buttons {
-                bottom: 16px;
-                right: 16px;
-            }
-        }
-
         .hidden {
             display: none;
         }
 
         /* 印刷用CSS */
         @media print {
-            header, .filter-section, .action-buttons, footer, .top-shops-section {
+            .bento-hero, .action-buttons, footer {
                 display: none !important;
+            }
+
+            body {
+                background: white !important;
             }
 
             .container {
@@ -481,6 +578,7 @@ html_content = '''<!DOCTYPE html>
                 page-break-inside: avoid;
                 vertical-align: top;
                 border: 1px solid #ccc !important;
+                border-radius: 8px !important;
                 padding: 8px !important;
             }
 
@@ -504,108 +602,105 @@ html_content = '''<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <header>
+    <!-- Bento Grid Hero Section -->
+    <section class="bento-hero">
         <div class="container">
-            <h1>ウェブベルマーク 掲載ショップ一覧</h1>
-            <p class="hero-subtitle">いつものネットショッピングが、学校への支援に</p>
-            <div class="hero-number">''' + str(total_shops) + '''</div>
-            <div class="hero-number-label">提携ショップ</div>
-            <p class="date-note">''' + CURRENT_DATE + '''</p>
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <div class="filter-section">
-                <input type="text" id="searchBox" placeholder="ショップ名で検索..." onkeyup="filterShops()">
-                <div class="filter-options">
-                    <label>
-                        <input type="checkbox" id="showRecommended" onchange="filterShops()">
-                        <span>おすすめショップのみ表示</span>
-                    </label>
+            <div class="bento-grid">
+                <!-- メインカード：店舗数 -->
+                <div class="bento-card bento-main">
+                    <h1>ウェブベルマーク</h1>
+                    <p class="hero-subtitle">いつものネットショッピングが、学校への支援に</p>
+                    <div class="hero-number">''' + str(total_shops) + '''</div>
+                    <div class="hero-label">提携ショップ</div>
+                    <p class="date-note">''' + CURRENT_DATE + '''</p>
                 </div>
-            </div>
 
-            <!-- 高還元ショップTOP10 -->
-            <div class="top-shops-section" id="topShopsSection">
-                <div class="top-shops-row">
-                    <div class="top-shops-column">
-                        <h2 class="section-title">還元率 TOP10</h2>
-                        <p class="section-desc">購入金額に対する還元率が高いショップ</p>
-                        <div class="top-shops-list">
+                <!-- 還元率TOP5 -->
+                <div class="bento-card bento-ranking">
+                    <div class="ranking-title">還元率 TOP5</div>
+                    <div class="ranking-subtitle">購入金額に対する還元率が高いショップ</div>
+                    <div class="ranking-list">
 '''
 
-# 還元率TOP10を生成
-for i, shop in enumerate(top_shops_percent, 1):
+# 還元率TOP5を生成
+for i, shop in enumerate(top_shops_percent[:5], 1):
     shop_name_escaped = html.escape(shop['name'])
     category_escaped = html.escape(shop['category'])
     rate = shop['rate_float']
     html_content += f'''
-                            <div class="top-shop-card">
-                                <div class="top-shop-rank">No.{i}</div>
-                                <div class="top-shop-info">
-                                    <div class="top-shop-name">{shop_name_escaped}</div>
-                                    <div class="top-shop-category">{category_escaped}</div>
-                                </div>
-                                <div class="top-shop-rate"><span class="rate-number">{rate:.2f}</span><span class="rate-unit">%</span></div>
+                        <div class="ranking-item">
+                            <div class="ranking-num">{i}</div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">{shop_name_escaped}</div>
+                                <div class="ranking-category">{category_escaped}</div>
                             </div>
+                            <div class="ranking-rate">{rate:.2f}<span class="unit">%</span></div>
+                        </div>
 '''
 
 html_content += '''
-                        </div>
                     </div>
-                    <div class="top-shops-column">
-                        <h2 class="section-title">還元点数 TOP10</h2>
-                        <p class="section-desc">利用に対する還元点数が多いショップ</p>
-                        <div class="top-shops-list">
+                </div>
+
+                <!-- 還元点数TOP5 -->
+                <div class="bento-card bento-ranking">
+                    <div class="ranking-title">還元点数 TOP5</div>
+                    <div class="ranking-subtitle">利用に対する還元点数が多いショップ</div>
+                    <div class="ranking-list">
 '''
 
-# 還元点数TOP10を生成
-for i, shop in enumerate(top_shops_points, 1):
+# 還元点数TOP5を生成
+for i, shop in enumerate(top_shops_points[:5], 1):
     shop_name_escaped = html.escape(shop['name'])
     category_escaped = html.escape(shop['category'])
     rate = int(shop['rate_float'])
     html_content += f'''
-                            <div class="top-shop-card">
-                                <div class="top-shop-rank">No.{i}</div>
-                                <div class="top-shop-info">
-                                    <div class="top-shop-name">{shop_name_escaped}</div>
-                                    <div class="top-shop-category">{category_escaped}</div>
-                                </div>
-                                <div class="top-shop-rate"><span class="rate-number">{rate:,}</span><span class="rate-unit">点</span></div>
+                        <div class="ranking-item">
+                            <div class="ranking-num">{i}</div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">{shop_name_escaped}</div>
+                                <div class="ranking-category">{category_escaped}</div>
                             </div>
+                            <div class="ranking-rate">{rate:,}<span class="unit">点</span></div>
+                        </div>
 '''
 
 html_content += '''
-                        </div>
                     </div>
                 </div>
-            </div>
 
+                <!-- 検索カード -->
+                <div class="bento-card bento-search">
+                    <div class="search-label">ショップを探す</div>
+                    <input type="text" id="searchBox" placeholder="ショップ名で検索..." onkeyup="filterShops()">
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" id="showRecommended" onchange="filterShops()">
+                            <span>おすすめのみ</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 統計カード -->
+                <div class="bento-card bento-stat">
+                    <div class="stat-number">''' + str(category_count) + '''</div>
+                    <div class="stat-label">カテゴリ</div>
+                </div>
+
+                <!-- 統計カード -->
+                <div class="bento-card bento-stat">
+                    <div class="stat-number">''' + str(recommend_count) + '''</div>
+                    <div class="stat-label">おすすめショップ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ショップ一覧セクション -->
+    <main class="shops-section">
+        <div class="container">
             <div id="shopsContainer">
 '''
-
-# 小学生の保護者向けのカテゴリ順序を定義
-category_order = [
-    "総合通販・百貨店",  # アスクルを含む、日常的に使う総合通販
-    "教育用品",  # 学校用品（ウチダス、スマートスクール）
-    "教育・学習サービス",  # Z会、進研ゼミなど
-    "本・音楽・ゲーム",  # 教育書籍、参考書、児童書
-    "キッズ・ベビー・おもちゃ",  # 子供用品
-    "ファッション・アパレル",  # 子供服・大人服
-    "食品・飲料・グルメ予約",  # 日常の食品購入
-    "美容・コスメ・健康",  # 保護者自身のニーズ
-    "スポーツ・アウトドア",  # 子供のスポーツ用品
-    "インテリア・生活雑貨・ペット用品",  # 生活必需品
-    "家電・PC・カメラ",  # 家電製品
-    "旅行・宿泊予約",  # 家族旅行
-    "フラワー・ギフト",  # 学校行事のお花など
-    "レジャー・エンタメ・体験",  # 週末の家族レジャー
-    "動画配信サービス",  # 子供向けコンテンツ
-    "サービス・その他",  # その他サービス
-    "買取・中古品販売",  # 不用品処分
-    "その他"  # その他
-]
 
 # カテゴリ順序に基づいてショップを表示
 for category in category_order:
