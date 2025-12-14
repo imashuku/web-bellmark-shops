@@ -194,16 +194,117 @@
         }
 
         .shop-reward {
-            background-color: #f5f5f5;
-            padding: 10px 12px;
-            border-radius: 4px;
-            text-align: center;
+            padding: 12px 0 0;
+            border-top: 1px solid #eee;
         }
 
         .reward-rate {
+            color: #1a1a1a;
+            font-size: 0.8125rem;
+        }
+
+        .reward-rate .rate-number {
+            color: #c41e3a;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .reward-rate .rate-unit {
             color: #c41e3a;
             font-weight: 600;
-            font-size: 0.9375rem;
+            font-size: 1rem;
+        }
+
+        /* 高還元ショップセクション */
+        .top-shops-section {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .top-shops-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .top-shops-column .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .top-shops-column .section-desc {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .top-shops-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .top-shop-card {
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            padding: 12px 16px;
+            transition: border-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-shop-card:hover {
+            border-color: #1e3a5f;
+        }
+
+        .top-shop-rank {
+            font-size: 0.75rem;
+            color: #888;
+            min-width: 32px;
+        }
+
+        .top-shop-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .top-shop-name {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .top-shop-category {
+            font-size: 0.6875rem;
+            color: #888;
+        }
+
+        .top-shop-rate {
+            color: #c41e3a;
+            font-weight: 700;
+            font-size: 1.125rem;
+            white-space: nowrap;
+        }
+
+        .top-shop-rate .rate-unit {
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-shops-row {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
 
         /* フッター */
@@ -314,7 +415,7 @@
 
         /* 印刷用CSS */
         @media print {
-            header, .filter-section, .action-buttons, footer {
+            header, .filter-section, .action-buttons, footer, .top-shops-section {
                 display: none !important;
             }
 
@@ -389,6 +490,206 @@
                 </div>
             </div>
 
+            <!-- 高還元ショップTOP10 -->
+            <div class="top-shops-section" id="topShopsSection">
+                <div class="top-shops-row">
+                    <div class="top-shops-column">
+                        <h2 class="section-title">還元率 TOP10</h2>
+                        <p class="section-desc">購入金額に対する還元率が高いショップ</p>
+                        <div class="top-shops-list">
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.1</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">ノートンストア</div>
+                                    <div class="top-shop-category">家電・PC・カメラ</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">8.00</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.2</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">北欧デザインのカーテン、ラグ、マット専門店【cucan クーカン】</div>
+                                    <div class="top-shop-category">インテリア・生活雑貨・ペット用品</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">6.11</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.3</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">ウイルスバスター公式トレンドマイクロ・オンラインショップ</div>
+                                    <div class="top-shop-category">家電・PC・カメラ</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">6.00</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.4</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">データの復旧・移行・抹消・セキュリティソフト直販サイト「AOSストア」</div>
+                                    <div class="top-shop-category">家電・PC・カメラ</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">5.72</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.5</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">ピアス専門店グリーンピアッシング</div>
+                                    <div class="top-shop-category">ファッション・アパレル</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">5.72</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.6</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">レゴランド・ディスカバリー・センター大阪</div>
+                                    <div class="top-shop-category">レジャー・エンタメ・体験</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">4.80</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.7</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">株式会社ルネサンス運営 公式オンラインショップ</div>
+                                    <div class="top-shop-category">美容・コスメ・健康</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">4.40</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.8</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">イヴ・サンローラン・ボーテ公式オンラインブティック</div>
+                                    <div class="top-shop-category">美容・コスメ・健康</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">4.24</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.9</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">シュウ ウエムラ</div>
+                                    <div class="top-shop-category">美容・コスメ・健康</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">4.24</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.10</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">Renta! | 電子書籍や電子コミックをお得にレンタル！</div>
+                                    <div class="top-shop-category">本・音楽・ゲーム</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">4.24</span><span class="rate-unit">%</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="top-shops-column">
+                        <h2 class="section-title">還元点数 TOP10</h2>
+                        <p class="section-desc">利用に対する還元点数が多いショップ</p>
+                        <div class="top-shops-list">
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.1</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">株式会社インターリンク</div>
+                                    <div class="top-shop-category">その他</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">24,000</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.2</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">バリューコマース株式会社(ECサイト募集)</div>
+                                    <div class="top-shop-category">その他</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">14,000</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.3</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">フレッツ光｜NTT東日本お申し込み</div>
+                                    <div class="top-shop-category">サービス・その他</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">10,000</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.4</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">東邦ガス</div>
+                                    <div class="top-shop-category">サービス・その他</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">3,192</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.5</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">女性専用ジムFURDI(ファディー)</div>
+                                    <div class="top-shop-category">スポーツ・アウトドア</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">2,800</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.6</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">三条たたみ</div>
+                                    <div class="top-shop-category">インテリア・生活雑貨・ペット用品</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">2,667</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.7</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">RISU算数 東大生らの個別フォローでタブレット学習</div>
+                                    <div class="top-shop-category">教育・学習サービス</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">2,000</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.8</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">学習塾なら個別指導の明光義塾</div>
+                                    <div class="top-shop-category">教育・学習サービス</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">2,000</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.9</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">BroadWiMAX</div>
+                                    <div class="top-shop-category">家電・PC・カメラ</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">2,000</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.10</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">京都きもの友禅</div>
+                                    <div class="top-shop-category">ファッション・アパレル</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">2,000</span><span class="rate-unit">点</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="shopsContainer">
 
                 <div class="category-section" data-category="総合通販・百貨店">
@@ -403,7 +704,7 @@
                             <h3 class="shop-name">Yahoo!ショッピング</h3>
                             <p class="shop-description">Yahoo!（ヤフー）ショッピングは幅広い品ぞろえと、最新のお買い得ネット通販情報が満載のオンラインショッピングモール。PayPay残高も使えてさらにお得！ちょい寄り後、アプリからの注文もOK！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.41%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.41</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -412,7 +713,7 @@
                             <h3 class="shop-name">ベルメゾンネット</h3>
                             <p class="shop-description">通販のベルメゾンネット（Belle Maison net）は、千趣会 ベルメゾンの通販カタログ商品のオンラインショップです。ファッション・コスメ・ブランド・インテリア・ディズニーグッズなどのカタログ販売・通信販売サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -421,7 +722,7 @@
                             <h3 class="shop-name">アイリスプラザ　アイリスオーヤマ公式通販サイト</h3>
                             <p class="shop-description">アイリス（IRIS）プラザは収納・家具インテリア用品、ペット用品、ガーデニング用品、事務用品など15000点を超える豊富な品揃え。テレビCMでお馴染みの商品も通販でお求め頂けます。WEB限定セットもお見逃しなく！無料会員登録をすると割引＆大量ポイントでお得！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.28%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.28</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -430,7 +731,7 @@
                             <h3 class="shop-name">おうちでイオン イオンショップ</h3>
                             <p class="shop-description">イオン（AEON）のお中元、お歳暮、母の日ギフトをはじめ、カタログ掲載品、WEB限定品などお店にない品もネットで取り扱っています。お近くにイオンのお店がなくてもご利用いただけます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.81%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.81</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -439,7 +740,7 @@
                             <h3 class="shop-name">カタログ通販のセシール(cecile)</h3>
                             <p class="shop-description">セシールのオンラインショップでは、下着、アウターから家具や生活雑貨、美容と健康グッズまで豊富な商品ラインナップ。初めてのご注文は全商品送料無料ほか、ポイントサービスや豊富なお支払い方法でお手軽・安心なショッピングをお楽しみください。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.81%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.81</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -448,7 +749,7 @@
                             <h3 class="shop-name">大丸松坂屋オンラインストア</h3>
                             <p class="shop-description">大丸松坂屋百貨店が運営するWEB通販サイトです。 お中元やお歳暮などのシーズンギフトのほか、お祝いや内祝いなどのギフト、 デパ地下グルメ、百貨店コスメなどを取り扱っております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.28%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.28</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -457,7 +758,7 @@
                             <h3 class="shop-name">高島屋オンラインストア</h3>
                             <p class="shop-description">高島屋オンラインストア（TAKASHIMAYA ONLINESTORE）は高島屋公式の通販サイト。お中元やお歳暮など、季節の贈り物や各種ギフトをはじめ、ご自宅用にもおすすめの人気のフード・スイーツ、ファッションブランドのトレンドアイテムが勢揃い。取り扱いブランドは1000以上！高島屋限定商品や、SALE・アウトレットコーナーなどのお買得品も充実。特選リビング、ブランドファッション、人気コスメ、ベビー・マタニティ、スポーツ・ホビー用品まで幅広くラインアップしております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -466,7 +767,7 @@
                             <h3 class="shop-name">通販のディノス オンラインショップ</h3>
                             <p class="shop-description">カタログ、テレビ通販【ディノス（dinos)】のオンラインショップです。ディノスオンラインショップでは家具・収納、キッチン・生活雑貨からファッション、美容・健康まで幅広いジャンルの商品をご用意、オリジナルショップやTVショッピングの商品も大好評！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -475,7 +776,7 @@
                             <h3 class="shop-name">ニッセン</h3>
                             <p class="shop-description">カタログ通販ニッセン（nissen）のオンラインサイトです。ファッションからインテリア・生活雑貨まで幅広い品揃えです。毎週水曜更新のセールなど、お得情報が盛りだくさん!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -484,7 +785,7 @@
                             <h3 class="shop-name">小田急オンラインショッピング</h3>
                             <p class="shop-description">小田急百貨店直営の、オンラインショップです。常時商品点数は3000点以上。お中元、お歳暮時期は、5000点以上の商品を取り揃えております。結婚祝いや出産祝い、返礼の内祝いギフトはもちろんのこと、希少価値の高いワインや、ここでしか手に入らない、ミシュランの最高位三ツ星に40年連続して選ばれている「トロワグロ」の商品など、大人気商品も各種取り揃えてございます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -493,7 +794,7 @@
                             <h3 class="shop-name">au PAY マーケット</h3>
                             <p class="shop-description">au PAY マーケットは、人気・話題のファッション・コスメ・グルメ・日用品・家電、たくさんの商品やお店と出会える総合ショッピングモールです。セールやポイント還元大幅UPの還元祭などお得なキャンペーンを多数実施中！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -502,7 +803,7 @@
                             <h3 class="shop-name">スーパーマーケット成城石井.com</h3>
                             <p class="shop-description">世界のグルメを直輸入しているスーパーマーケット【成城石井】の公式オンラインストアです。 ワインや輸入食品、ギフト、高級食材、雑貨まで成城石井の選りすぐりの商品を豊富に取り揃えております!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -511,7 +812,7 @@
                             <h3 class="shop-name">ハンズの通販サイト「ハンズ ネットストア」</h3>
                             <p class="shop-description">ハンズの通販サイト「ハンズ ネットストア（HANDSNET）」では、インテリア・フィットネス・ビューティー・キッチン・家庭用品・バラエティグッズ・アウトドア・DIYなど様々なジャンルの商品をご用意しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.83%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.83</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -520,7 +821,7 @@
                             <h3 class="shop-name">京王ネットショッピング</h3>
                             <p class="shop-description">京王ネットショッピングは京王百貨店の公式オンライン通販サイト お中元・お歳暮などの歳時記ギフトや、ちょっとした贈り物のほか、フード、ワイン、コスメなどのネットショッピングがお楽しみいただけます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.92%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.92</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -529,7 +830,7 @@
                             <h3 class="shop-name">PayPayモール（ペイペイ）</h3>
                             <p class="shop-description">PayPayモールは、ヤフーが運営するオンラインショッピングモール。 ブランド別、ジャンル別で欲しい商品を探せます。PayPayが使える便利でお得なネット通販。 ファッションや家具、家電、日用品まで充実の品ぞろえで、ワンランク上のお買い物体験をあなたに。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -538,7 +839,7 @@
                             <h3 class="shop-name">ダイエーネットショッピング</h3>
                             <p class="shop-description">ダイエーネットショッピング（daiei）では、母の日・父の日・お中元・お歳暮からクリスマスケーキ・おせちなどのシーズンギフトの承りを致しております。また、お返しギフトとして最適な暮らしの贈り物SHOPにおいては全国無料配達にて承りをしております。その他、旬ギフトや産直米などその季節に是非食したい商品を取りそろえ生産地直送にてお届けをさせて頂いております</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.83%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.83</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -547,7 +848,7 @@
                             <h3 class="shop-name">話題の商品がお得に試せる【サンプル百貨店】無料会員登録</h3>
                             <p class="shop-description">TVでも話題！ スーパーなどに並んでいる話題の商品が、半額になることも！ さまざまな商品をお得に試せるサンプル百貨店は、 ＼約300万人／が利用している限定サービスです。 今なら無料会員登録で、もれなくポイントプレゼント中。 さらに、初回お試しに限って人気商品をもっとお得にお試しいただけるチャンスも。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">登録完了で 44点</span>
+                                <span class="reward-rate">登録完了で <span class="rate-number">44</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -556,7 +857,7 @@
                             <h3 class="shop-name">JTBショッピング</h3>
                             <p class="shop-description">旅行会社JTBグループのJTB商事が運営する お土産・お取り寄せサイト「JTBショッピング」です。 ★「JTBトラベルポイントがたまる・つかえる」ショッピングサイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -565,7 +866,7 @@
                             <h3 class="shop-name">日本のいいものセレクトショップ【藤巻百貨店】</h3>
                             <p class="shop-description">メイドインジャパンにこだわったセレクトショップ「藤巻百貨店」では、バッグ、財布、アパレルファッションから切子グラスまで、大人のための厳選された商品を取り揃えています。ミドル年代の男性、感性性豊かな若い方々、男性への素敵なプレゼントをお探しの女性まで、逸品に彩られた生活を提案してまいります。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 3.81%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">3.81</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -574,7 +875,7 @@
                             <h3 class="shop-name">Tokyo Life (東京ライフ) | 大人の男女の為のセレクトショップ</h3>
                             <p class="shop-description">大人の男女へのライフスタイル提案型セレクトショップ!刺激的なアイテムを厳選しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.80%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -583,7 +884,7 @@
                             <h3 class="shop-name">激安！家電のタンタンショップ</h3>
                             <p class="shop-description">家電のタンタンショップは７０年の実績を持った家電販売チェーンのインターネット事業として運営しています。 永年の家電販売の経験を生かして仕入れ努力やローコスト運営物流ノウハウにより一流メーカーの家電品を お安く全国の方々に提供しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.76%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -592,7 +893,7 @@
                             <h3 class="shop-name">Qoo10</h3>
                             <p class="shop-description">eBay公式ショッピングサイト「衝撃コスパモールQoo10（キューテン）」。ファッション、ビューティー、デジタル、食品、ベビー用品、日用品のトレンドから定番まで。Qoo10が発行するクーポンや、お友達、お店からもらえるクーポンの利用で、より高い割引率に！朝10時、夕方17時、深夜0時更新のとってもお得なタイムセールを実施中！欲しかった商品をさらに高コスパでお買い求めいただけます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.76%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -601,7 +902,7 @@
                             <h3 class="shop-name">サンプル百貨店(ちょっプル申込)</h3>
                             <p class="shop-description">TVでも話題！ スーパーなどに並んでいる話題の商品が、半額になることも！ さまざまな商品をお得に試せるサンプル百貨店は、＼約300万人／が利用している限定サービスです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.40%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -610,7 +911,7 @@
                             <h3 class="shop-name">特価COM</h3>
                             <p class="shop-description">特価COMはパソコン、デジカメ、液晶テレビ 、理美容、ゲーム等、幅広く豊富な商品を特価で販売する通販サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.38%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.38</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -619,7 +920,7 @@
                             <h3 class="shop-name">ECカレント</h3>
                             <p class="shop-description">2010年度JCSI(日本版顧客満足度指数)通信販売業界 第4位。 インターネット通販専門店として 家電・パソコンから生活雑貨まで豊富な品揃えで、安心サービス(長期保証や大型家電設置)の「ECカレント」です。 全国どこでも在庫品ならスピーディにお届けします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.38%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.38</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -628,7 +929,7 @@
                             <h3 class="shop-name">ヤマダモール</h3>
                             <p class="shop-description">ヤマダ電機が運営する、総合ショッピングモール「YAMADAモール」ヤマダポイントが使えて貯まる、あなたの欲しいモノがきっと見つかるショッピングモールです。350社が参加し、商品点数は10万点で、あらゆるジャンルの魅力的な商品が売られており今後はさらに出店店舗と商品数は拡大していきます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で最大 0.38%</span>
+                                <span class="reward-rate">ご購入で最大 <span class="rate-number">0.38</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -637,7 +938,7 @@
                             <h3 class="shop-name">eBEST(イーベスト)</h3>
                             <p class="shop-description">日本全国安心価格でお届けします。 家電、OA、AV、健康器具まで色々取り揃えております。 保証もバッチリ!安心してお買い物をお楽しみいただけます!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.38%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.38</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -656,7 +957,7 @@
                             <h3 class="shop-name">ウチダス　教育用品通販ショップ</h3>
                             <p class="shop-description">ウチダス（UCHIDAS）は学校・幼稚園・保育所等文教関係の皆様に、「いい学校」「いい教育」「いい授業」づくりを支援するため、学校生活に必要な事業支援用品、イベント用品、日用品などを販売しています。教職員向けのデリバリーサービス。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -665,7 +966,7 @@
                             <h3 class="shop-name">スマートスクール　学校・幼保園で必要なものを翌日配送</h3>
                             <p class="shop-description">スマートスクール（smart shool）は、学校、幼保園、学童施設などの教育現場で必要な用品を翌日お届けする、学校園向けデリバリーサービスです。納品書・ご請求書は御校の担当販売店が担当します。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -684,7 +985,7 @@
                             <h3 class="shop-name">スタディサプリ小学講座・中学講座</h3>
                             <p class="shop-description">「スタディサプリ小学講座・中学講座」は、リクルートが提供する、勉強が難しくなる小学校4年生から、中学生の定期テスト・高校受験対策までカバーする、お子さまの成績アップのためのオンライン学習サービスです。 小学・中学・高校、大学受験まで5教科18科目1万本を超える講義動画がPC、スマホで見放題となっております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">初回申込時に 936点</span>
+                                <span class="reward-rate">初回申込時に <span class="rate-number">936</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -693,7 +994,7 @@
                             <h3 class="shop-name">進研ゼミ・こどもちゃれんじ（新規入会申込）</h3>
                             <p class="shop-description">「ベネッセの通信教育サービス」（「こどもちゃれんじ」（幼児）・「進研ゼミ」（小学1年生~高校3年生向け）） は、生後3カ月から高校生までのお子さまの成長・学び・受験対策を支援する家庭学習教材です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">入会申込みで 283点</span>
+                                <span class="reward-rate">入会申込みで <span class="rate-number">283</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -702,7 +1003,7 @@
                             <h3 class="shop-name">Z会 通信教育（資料請求）</h3>
                             <p class="shop-description">Z会グループ【公式サイト】自ら学ぶことは、やがて、学力以上の差をつける。幼児~大学受験生・大学生・社会人向けに、通信教育をはじめとした教育サービスを展開するZ会グループのサービスをご紹介いたします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">資料請求で 251点</span>
+                                <span class="reward-rate">資料請求で <span class="rate-number">251</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -711,7 +1012,7 @@
                             <h3 class="shop-name">RISU算数 東大生らの個別フォローでタブレット学習</h3>
                             <p class="shop-description">RISU算数・RISUきっずは算数に特化したタブレット型の子供向け通信教育サービスです。 お子様の学習データを分析し、１人１人の「ちょうどいい」レベルに教材が自動に変化するので、 「苦手」を取り残しません。 「無学年制」が特長で、75%以上のお子様が学年より上のステージを先取りしています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">お試し後の本契約※で 2000点</span>
+                                <span class="reward-rate">お試し後の本契約※で <span class="rate-number">2,000</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -720,7 +1021,7 @@
                             <h3 class="shop-name">フィットちゃんランドセルYahoo!店</h3>
                             <p class="shop-description">国内製造販売本数No1！フィットちゃんランドセルの公式ショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -729,7 +1030,7 @@
                             <h3 class="shop-name">LEC 東京リーガルマインド オンラインショップ</h3>
                             <p class="shop-description">LEC東京リーガルマインドは、資格受験指導37年の実績とノウハウを持ち、司法試験、司法書士、弁理士をはじめとする各種国家資格および検定受験の対策講座を全国展開する資格取得・通信教育のスクールです。 圧倒的な情報量と蓄積されたノウハウで、数多くの合格者を出してきた実績を元に、常時10,000近くの商品ラインナップを揃えています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.80%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -738,7 +1039,7 @@
                             <h3 class="shop-name">学習塾なら個別指導の明光義塾</h3>
                             <p class="shop-description">明光義塾は教室数・生徒数No.1※ 高校受験・大学受験合格者数No.1※ を誇る全国展開の個別指導塾です！ ※（株）日本能率協会総合研究所調べ</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">体験完了で 2000点</span>
+                                <span class="reward-rate">体験完了で <span class="rate-number">2,000</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -757,7 +1058,7 @@
                             <h3 class="shop-name">Renta! | 電子書籍や電子コミックをお得にレンタル！</h3>
                             <p class="shop-description">Renta!はコミック等が48時間100円から、読みたい時にパソコンやスマートフォンですぐ借りられる、電子書籍のレンタルサイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">レンタル金額の 4.24%</span>
+                                <span class="reward-rate">レンタル金額の <span class="rate-number">4.24</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -766,7 +1067,7 @@
                             <h3 class="shop-name">アニメイト</h3>
                             <p class="shop-description">全国100店舗以上展開の日本最大級アニメグッズ専門チェーンストア「アニメイト（animate）」の公式通販サイトです。10～30代の女性ユーザーを中心に、リアル店舗に比べて多くの20～30代男性ユーザーにも幅広くご愛顧頂いております。キャラクターグッズは6600円、CD商品は4400円、書籍商品は3300円以上のお買い上げで＜送料無料＞です。(一部条件・対象外あり)</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.88%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.88</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -775,7 +1076,7 @@
                             <h3 class="shop-name">SQUARE ENIX(スクウェア・エニックス)　e-STORE</h3>
                             <p class="shop-description">SQUARE ENIX（スクウェア・エニックス）の公式サイト「e-STORE」はドラゴンクエスト、ファイナルファンタジーなど各種ゲームソフトの直販サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.83%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.83</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -784,7 +1085,7 @@
                             <h3 class="shop-name">紀伊國屋書店ウェブストア</h3>
                             <p class="shop-description">紀伊國屋書店ウェブストアは紀伊國屋書店が運営するサイトです。書籍や雑誌、電子書籍等を購入できるオンラインストアを中心に、紀伊國屋書店の提供するウェブサービスを集約しています。購入した書籍を管理できるクラウドサービスや、リアル店舗の在庫を検索する機能もございます。★3，000円以上ご購入で送料無料!★和書、洋書、電子書籍、雑誌、DVD/CD 1，000万件のデータベースから商品を探して購入できます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.28%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.28</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -793,7 +1094,7 @@
                             <h3 class="shop-name">セブンネットショッピング　本・CD・DVD 通販</h3>
                             <p class="shop-description">セブンネットショッピング（7net shopping）は本・コミック・雑誌・CD・DVD・ゲーム・ギフトなどセブン‐イレブン店舗受取りなら送料無料＆24時間受取れる。nanacoポイントも貯まって使えるサイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.89%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.89</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -802,7 +1103,7 @@
                             <h3 class="shop-name">タワーレコードオンライン</h3>
                             <p class="shop-description">国内に70店舗以上を展開する、日本最大級のCDショップチェーン「タワーレコード（TOWER RECOROS）」のオフィシャルEコマースサイトです。CD、DVD、本、グッズなど豊富な品揃え。タワレコだけでしか手に入らない特典付きアイテムや限定商品も満載!タワーレコードがあなたの音楽生活をバックアップ!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -811,7 +1112,7 @@
                             <h3 class="shop-name">BOOK☆WALKER（ブックウォーカー）</h3>
                             <p class="shop-description">電子書籍を読むならKADOKAWA直営の電子書籍ストアBOOK☆WALKER（ブックウォーカー）。ライトノベル、マンガ、新書、実用書、写真集、雑誌など。Android、iPhoneアプリ、PC、タブレットなど、様々な端末で利用可能！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.28%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.28</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -820,7 +1121,7 @@
                             <h3 class="shop-name">国内最大級の総合電子書籍ストア　ブックライブ</h3>
                             <p class="shop-description">電子書籍の総合書店「BookLive!」。 人気の漫画・コミック・小説・ラノベなど、新刊が毎日続々入荷。無料試し読みに加え、1巻まるごと無料のマンガも多数。お得なキャンペーン実施中。Tポイントが貯まる、使える。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.34%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.34</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -829,7 +1130,7 @@
                             <h3 class="shop-name">HMV&amp;BOOKS online（エイチエムブイ）</h3>
                             <p class="shop-description">HMV＆BOOKS onlineはローソンのエンタメ系ショッピングサイトです。 CD・DVD・Blu-ray・本・ゲーム・グッズまで国内最大級の品揃え！ここでしか買えない限定アイテムやオリジナル特典、毎日更新される最新ニュースや豊富な特集コンテンツ、随時実施中のお得なキャンペーンやセールをご用意して、皆様のご来店をお待ちしております！ 全国のローソン/ミニストップでの商品受取無料！Pontaポイントもたまる！つかえる！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -838,7 +1139,7 @@
                             <h3 class="shop-name">CD/DVD/ゲームを買うならお得なNeowing!</h3>
                             <p class="shop-description">CD・DVD＆Blu-rayからゲーム・グッズ・書籍まで豊富に品揃え！ 初回仕様・特典の購入可否もリアルタイムで表示し、特典ポスターは折らずに丸めてお届けいたします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -847,7 +1148,7 @@
                             <h3 class="shop-name">雑誌のFujisan.co.jp（フジサン）</h3>
                             <p class="shop-description">雑誌のオンライン書店Fujisan.co.jpです。 定期購読、バックナンバー、最新号やパソコンで読むデジタル雑誌まで、雑誌のことなら何でも揃います!定期購読なら多くの雑誌が送料無料。 さらに割引価格の雑誌も多く、最大70%OFFのものもあります。ビジネス、ファッション、英語、スポーツなどなど、誰もが知ってる有名誌から業界向けのニッチな雑誌まで、様々なジャンルの中からお好きな雑誌をご紹介ください。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.09%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.09</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -856,7 +1157,7 @@
                             <h3 class="shop-name">本の要約サービス【フライヤー】</h3>
                             <p class="shop-description">一冊10分で読める本の要約サービスflier(フライヤー)です。 flierは、本を読む時間がないビジネスパーソンにぴったりの読書ツールです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ゴールドプラン申込完了で 600点</span>
+                                <span class="reward-rate">ゴールドプラン申込完了で <span class="rate-number">600</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -865,7 +1166,7 @@
                             <h3 class="shop-name">BOOK☆WALKER　マンガ・雑誌読み放題サービス</h3>
                             <p class="shop-description">BOOK☆WALKERマンガ・雑誌読み放題はKADOKAWA直営のアニメ・ゲーム雑誌などが読み放題になる定額読み放題サービスです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">会員登録で 400点</span>
+                                <span class="reward-rate">会員登録で <span class="rate-number">400</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -874,7 +1175,7 @@
                             <h3 class="shop-name">ぷりんと楽譜</h3>
                             <p class="shop-description">ヤマハの「ぷりんと楽譜」は、欲しい楽譜を1曲単位でダウンロード購入できる楽譜データ販売サイトです。 ピアノ、ギター、エレクトーン、バンド、ウクレレ、合唱・ボーカル、管楽器、弦楽器など28万点以上の楽譜データを配信中。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -883,7 +1184,7 @@
                             <h3 class="shop-name">漫画全巻ドットコム</h3>
                             <p class="shop-description">人気コミックタイトル全巻セットがズラリ。新品コミック全巻セット専門店です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -892,7 +1193,7 @@
                             <h3 class="shop-name">colleize(コレイズ）</h3>
                             <p class="shop-description">公式グッズ・公式ライセンス商品専門ECサイトです。 「鬼滅の刃」や「東京リベンジャーズ」などの人気コンテンツをはじめ、ドラクエ、FF、どうぶつの森などのゲームグッズ、ぬいぐるみ、フィギュア等、様々な商品を扱っております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -901,7 +1202,7 @@
                             <h3 class="shop-name">FRONTIERダイレクト</h3>
                             <p class="shop-description">BTOパソコンのFRONTIER（フロンティア）公式通販サイト。 格安デスクトップ・ノートPCはもちろん、SSD、最新グラフィックカード搭載ゲーミングPCなどご希望のカスタマイズも可能です。 サポート・長期保証も充実。安心の国内生産。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.80%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -910,7 +1211,7 @@
                             <h3 class="shop-name">レコチョク</h3>
                             <p class="shop-description">日本最大級の楽曲数が揃う、レコード会社直営のレコチョクによる音楽配信サービスです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.80%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -919,7 +1220,7 @@
                             <h3 class="shop-name">石橋楽器店</h3>
                             <p class="shop-description">石橋楽器店が運営するオンラインショップには楽器が盛りだくさん!ギターやベース、ドラムはもちろん、ウクレレ、鍵盤楽器、管楽器まで様々な楽器が充実の品揃え!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.57%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.57</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -938,7 +1239,7 @@
                             <h3 class="shop-name">アカチャンホンポOnline Shop</h3>
                             <p class="shop-description">マタニティ・ベビー・キッズ用品専門店のアカチャンホンポのネット通販サイトです。アカチャンホンポネット通販は、セブン＆アイが提供する「オムニ7」で、nanacoポイントが貯まったりセブンｰイレブンでの店舗受取ができる便利な通販サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.89%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.89</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -947,7 +1248,7 @@
                             <h3 class="shop-name">タカラトミーモール</h3>
                             <p class="shop-description">タカラトミー公式通販サイト「タカラトミーモール」。トミカ、プラレール、リカちゃん、ポケモン、トランスフォーマー、ディズニー、スターウォーズ等のおもちゃから新作商品の予約購入、ここでしか買えない限定グッズをネットで簡単ショッピング。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.81%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.81</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -956,7 +1257,7 @@
                             <h3 class="shop-name">e-CAPCOM（カプコン）</h3>
                             <p class="shop-description">カプコンのキャラクター商品がなんでも揃う直営通販サイト。ゲーム・グッズ・CDなど商品はどんどん増えるので、見る度に楽しい発見が!新作の予約販売も。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -965,7 +1266,7 @@
                             <h3 class="shop-name">ダッドウェイ　オンラインストア</h3>
                             <p class="shop-description">Ergobaby(エルゴベビー)Sassy(サッシー)をはじめ、人気の海外ベビーグッズの日本正規総代理店ダッドウェイが運営する公式オンラインストアです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.40%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -974,7 +1275,7 @@
                             <h3 class="shop-name">BEBE MALL オフィシャルオンラインストア</h3>
                             <p class="shop-description">人気のBeBeやSLAPSLIPといった子供服・ベビー服のショッピングモールです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -993,7 +1294,7 @@
                             <h3 class="shop-name">NYオンライン</h3>
                             <p class="shop-description">ニューヨーカー直営のファッション通販「NYオンライン」です。ニューヨーカーはハイクオリティを背景に、ベーシックでありながらも、時代の空気やトレンドのエッセンスをプラスしたスタイル提案するブランドです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.34%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.34</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1002,7 +1303,7 @@
                             <h3 class="shop-name">アイルミネ</h3>
                             <p class="shop-description">アイルミネ（I Lumine）はルミネの人気ブランドを公式に取り扱うファッション通販サイトです。新作商品が毎日入荷中！アイテム別ランキングやおすすめコーディネートなども掲載中！株式会社ルミネが運営。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.85%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.85</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1011,7 +1312,7 @@
                             <h3 class="shop-name">集英社 HAPPY PLUS STORE</h3>
                             <p class="shop-description">HAPPY PLUS STOREは集英社の公式ファッション通販サイト。出版社ならではの「目利き力」と「編集力」による多彩なコンテンツが満載！「“かわいい”と“欲しい”に出会えるコマースメディア」をコンセプトにファッション、雑貨、ビュー ティなどバイヤーが厳選したアイテムを販売しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.34%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.34</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1020,7 +1321,7 @@
                             <h3 class="shop-name">ワールド オンラインストア</h3>
                             <p class="shop-description">ワールドの直営ファッション通販サイトWORLD ONLINE STOREは、アンタイトル、インディヴィ、ピンクラテ、タケオキクチ、ハッシュアッシュなど、全80以上の人気ファッションブランドの販売を行っています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.85%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.85</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1029,7 +1330,7 @@
                             <h3 class="shop-name">ワコール</h3>
                             <p class="shop-description">ワコール（wacoal）公式ショッピングサイト。国内最大級の品揃え。TVCMでおなじみのアイテムやWEB限定セールを開催。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1038,7 +1339,7 @@
                             <h3 class="shop-name">フェリシモ【定期便】</h3>
                             <p class="shop-description">プランナーがこだわって作った商品（会）の 中から、毎月１回、色柄・デザインを厳選してお届けします。 続けるほど、集めるほど、楽しさが拡がるフェリシモ定期便を お楽しみください。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">「定期便」新規申込完了で 400点</span>
+                                <span class="reward-rate">「定期便」新規申込完了で <span class="rate-number">400</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1047,7 +1348,7 @@
                             <h3 class="shop-name">FREAK&#x27;S STORE（デイトナパーク）</h3>
                             <p class="shop-description">FREAK&#x27;S STORE/フリークスストアのオンラインショップです。 「アメリカの豊かさとワクワク・ドキドキを日本に伝えたい」という想いからスタート1986年の創業以来、洋服、雑貨、インテリアなど自分たちが本気でカッコ良いと思うものをセレクト。積極的に楽しむ生活体験者＝フリークとして、アメリカンライフスタイルの楽しみ方を提案するセレクトショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1056,7 +1357,7 @@
                             <h3 class="shop-name">コロンビアスポーツウェア　公式サイト</h3>
                             <p class="shop-description">株式会社コロンビア（Columbia）スポーツウェアジャパンはアウトドア・スポーツウェア商品を取り扱っています。独自技術を採用した商品を販売しており、登山、トレッキングなどアウトドアスポーツに適した素材の製品を提供しています。また街でもオシャレに着こなせるスタイリッシュなデザインや豊富なカラーバリエーションもブランドの特徴になっています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.33%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.33</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1065,7 +1366,7 @@
                             <h3 class="shop-name">靴の総合通販 ABC-MARTオンラインストア</h3>
                             <p class="shop-description">靴の通販ならABC-MARTオンラインストア</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.83%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.83</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1074,7 +1375,7 @@
                             <h3 class="shop-name">京都きもの友禅</h3>
                             <p class="shop-description">「京都きもの友禅」は、全国に42店舗を展開し、成人式の振袖レンタル・購入をおこなっています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約完了 2000点</span>
+                                <span class="reward-rate">予約完了 <span class="rate-number">2,000</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1083,7 +1384,7 @@
                             <h3 class="shop-name">ピアス専門店グリーンピアッシング</h3>
                             <p class="shop-description">ボディピアス、ステンレスピアス、シルバーピアスなど多数のピアスと、イヤリング、イヤーカフ、ピアス関連アイテム、ジュエリーボックス等を扱うアクセサリー・オンラインショップ。お手頃なアイテムから本格的なジュエリーまで、カラー・サイズバリエも含めると数万アイテムの商品を販売しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 5.72%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">5.72</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1092,7 +1393,7 @@
                             <h3 class="shop-name">きもの365</h3>
                             <p class="shop-description">「きもの365」は、着物レンタル・通販サイトとして呉服専門店が運営するサイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1101,7 +1402,7 @@
                             <h3 class="shop-name">ビッグエムワン</h3>
                             <p class="shop-description">大きいサイズのメンズファッションを販売しているビッグエムワンです。 全国に80店舗以上のリアル店舗も運営していますので安心していただけます。 今なら新規会員登録で全国送料無料。 他社で取扱いのないオリジナルウェアが人気で多数。機能性商品も人気です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1110,7 +1411,7 @@
                             <h3 class="shop-name">STYLE BLOCK（スタイルブロック）</h3>
                             <p class="shop-description">ニーハイブーツ、パーティードレス、ニットワンピース等、カワイイ商品が多数のファッション通販サイトです。 パーティードレス・ワンピースはミニ・ひざ丈・マキシ丈etc…と種類も豊富です!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.28%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.28</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1119,7 +1420,7 @@
                             <h3 class="shop-name">SHIFFON ONLINE STORE</h3>
                             <p class="shop-description">SHIFFON ONLINE STOREでは、国内外のブランドを最大70%OFFで販売しています。 雑誌LEONにも掲載されています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1128,7 +1429,7 @@
                             <h3 class="shop-name">Classical Elf</h3>
                             <p class="shop-description">国内最大級のファッションモール「ZOZOTOWN」レディースランキングに多数アイテム掲載の実績があるファッションサイト【Classical Elf】です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1137,7 +1438,7 @@
                             <h3 class="shop-name">プチバトーオンラインブティック</h3>
                             <p class="shop-description">プチバトーオンラインブティックは、フランス生まれのアパレルブランド「プチバトー」の公式ショッピングサイトです。 洗練されたデザインと着心地の良さで、本国フランスでは「知らない人はいない」と言われるほどの国民的ブランドとしてあらゆる世代に愛されています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.40%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1146,7 +1447,7 @@
                             <h3 class="shop-name">メンズファッション通販　CAMBIO/カンビオ</h3>
                             <p class="shop-description">有名人などがメディアで着用されることも多く、 ファッション誌掲載の注目アイテムからインポートブランドまで、メンズの旬なファッションを取り扱っております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.20%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1155,7 +1456,7 @@
                             <h3 class="shop-name">ACE ONLINE STORE</h3>
                             <p class="shop-description">機能性とデザイン性に優れた商品を多数作り続けてきた「エース」の公式通販サイトです。スーツケース、ビジネスバッグ、ファッションバッグ、スポーツバッグなどカバン全般を取り扱っております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.14%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.14</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1164,7 +1465,7 @@
                             <h3 class="shop-name">WORLD ONLINE STORE(ワールド オンラインストア)</h3>
                             <p class="shop-description">WORLD ONLINE STORE（ワールドオンラインストア）は、アンタイトル、インディヴィ、タケオキクチなど 人気ブランドを多数取り扱うワールドの直営通販サイトです。  店舗受取りなどの相互サービスのほか、ポイントサービスは全国の店舗と共通でご利用いただけます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.76%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1173,7 +1474,7 @@
                             <h3 class="shop-name">【calif】人気ストリートファッションブランドの公式通販</h3>
                             <p class="shop-description">人気ストリートファッションブランドの公式通販サイト「calif」。 XLARGE、X-girl、MILKFED.、SILAS、Styles、DISPATCHER NO.8 など複数ブランド取り扱い。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1182,7 +1483,7 @@
                             <h3 class="shop-name">WEGO ONLINE STORE</h3>
                             <p class="shop-description">若者に人気のメンズ・レディース アイテムを取り扱うファッションブランドWEGOの公式オンラインショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1191,7 +1492,7 @@
                             <h3 class="shop-name">GUESS JAPAN公式オンラインストア</h3>
                             <p class="shop-description">1981年にジーンズブランドとして始まったGUESSは、ブランド創設43周年を迎えました。  ヨーロピアン・スタイルとアイコニックなビジュアルでグローバル・ライフスタイルブランドと成長し、トータルコレクションを世界80カ国以上で1500以上の店舗で展開しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1200,7 +1501,7 @@
                             <h3 class="shop-name">セレクトショップ【STUDIOUS】公式オンラインショップ</h3>
                             <p class="shop-description">【STUDIOUS】は日本発のTOKYOブランドにこだわるセレクトショップです。  国内デザイナーズブランドに特化し、他では手に入りにくいアイテムを揃え、モード、ストリート、カジュアルをバランス良く取り入れ、最新トレンドを反映。 MADE IN JAPANの高品質な素材と縫製技術を活かしたアイテムや男女問わず着用できる洗練されたデザインをセレクトしています。 「TOKYOブランド」をテーマに、都会的なファッションスタイルを提案します。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.52%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.52</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1219,7 +1520,7 @@
                             <h3 class="shop-name">OZmall(オズモール)</h3>
                             <p class="shop-description">会員数は、現在320万人（2019年4月時点）。体験提案記事×予約のメディアです。 編集部が厳選したレストラン・宿泊・ヘアサロン・リラクサロンなど24時間WEBで予約ができる。記念日や誕生日はもちろん、自分へのごほうびにもぴったり。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約＋来店で 148点</span>
+                                <span class="reward-rate">予約＋来店で <span class="rate-number">148</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1228,7 +1529,7 @@
                             <h3 class="shop-name">食べログ ディナー予約</h3>
                             <p class="shop-description">食べログは「失敗しないお店選び」をコンセプトにした、 月間約1億人以上が利用する日本最大級のグルメサイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約一人あたり 22点</span>
+                                <span class="reward-rate">予約一人あたり <span class="rate-number">22</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1237,7 +1538,7 @@
                             <h3 class="shop-name">ENOTECA（エノテカ）</h3>
                             <p class="shop-description">エノテカでは&quot;最短距離&quot;と&quot;品質維持&quot;にこだわって、美味しいワインをお客様にお届けしています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1246,7 +1547,7 @@
                             <h3 class="shop-name">Oisix（おいしっくす）</h3>
                             <p class="shop-description">「安全」「おいしい」食品宅配の Oisix（おいしっくす）。 安全・おいしさにこだわる 生産者さんの商品だけをお届けします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1255,7 +1556,7 @@
                             <h3 class="shop-name">サンクゼール〈久世福商店〉オンラインショップ</h3>
                             <p class="shop-description">サンクゼール（St.Cousair）&amp;久世福商店のオンラインショッププログラムでございます！お中元や内祝い、ギフトやちょっとしたプレゼントにも!おいしいものがとことん揃ったショップ、どんなシーンにも活用できる、それがサンクゼールオンラインショップです♪</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 4.00%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1264,7 +1565,7 @@
                             <h3 class="shop-name">ホットペッパーグルメ 飲食店ネット予約</h3>
                             <p class="shop-description">全国のグルメ情報、レストラン・居酒屋のネット予約は、ホットペッパーグルメ（HOT PEPPER）！ネット予約なら、いつでもどこでも簡単予約！予約人数に応じてポイントもたまります。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">1件予約時に 44点</span>
+                                <span class="reward-rate">1件予約時に <span class="rate-number">44</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1273,7 +1574,7 @@
                             <h3 class="shop-name">ブルーボトルコーヒー公式オンラインストア</h3>
                             <p class="shop-description">ブルーボトルコーヒーの公式オンラインストアです。すべてのお客様においしいコーヒーを届けることをミッションに、厳選したスペシャルティコーヒー・オリジナルグッズ・ギフト等を販売しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1282,7 +1583,7 @@
                             <h3 class="shop-name">e-soda</h3>
                             <p class="shop-description">電源不要！どこでも気軽に炭酸ドリンクが作れる新アイテム「e-soda （イーソーダ）drink」</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 800点</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">800</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1291,7 +1592,7 @@
                             <h3 class="shop-name">パーソナルスムージー【GREEN SPOON】</h3>
                             <p class="shop-description">カラダの悩みや生活習慣から、今の自分に必要な栄養素を無料診断でチェック。 　その栄養素を含む野菜とフルーツからできたスムージーを25種のレシピから選んで提案します！ 　日本スーパーフード協会認定の14種類のスーパーフードを使用。 　また、ビタミンCやビタミンB群を豊富に含んでいます！ 　甘味料、保存料、着色料、香料を一切使っておりません！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 608点</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">608</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1300,7 +1601,7 @@
                             <h3 class="shop-name">辛子めんたい 福さ屋</h3>
                             <p class="shop-description">福さ屋は、辛子明太子の本場である福岡市博多区にある会社です。 創業以来、博多の味「明太子」を追求し続け、 今では多くのお客様から「辛子明太子を食べるなら、福さ屋の辛子めんたい」と 言っていただけるまでになりました。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1309,7 +1610,7 @@
                             <h3 class="shop-name">オーダーチーズ・ドットコム</h3>
                             <p class="shop-description">チーズをはじめとしたグルメ食材を海外から取り寄せて販売。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 3.81%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">3.81</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1318,7 +1619,7 @@
                             <h3 class="shop-name">ピエール・エルメ・パリ オンラインブティック</h3>
                             <p class="shop-description">マカロンで有名な「ピエール・エルメ・パリ」のオンラインショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1327,7 +1628,7 @@
                             <h3 class="shop-name">JA タウン</h3>
                             <p class="shop-description">「JAタウン」は全農が運営する、産地直送のショッピングモールです。全国約100ショップのJA等から、お客様のもとに旬の果物・野菜・米・肉などをお届けします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.76%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1336,7 +1637,7 @@
                             <h3 class="shop-name">【ベルーナ】My Wine CLUB</h3>
                             <p class="shop-description">ワイン通販国内14年連続No.1※東京商工リサーチ調べ(2008~2020年度)My Wine Clubは、スタッフが直接現地ワイナリー等と交渉を行い、買い付けをしています。そのため卸や商社を通す、通常の仕入れで発生する中間マージンがカットでき、高品質のワインを格安にお届けすることが出来ます。毎月第4土曜日は「マイワインクラブの日」としてメルマガ限定キャンペーンを実施中!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.76%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1345,7 +1646,7 @@
                             <h3 class="shop-name">世界一面白いお菓子屋さん【PAPABUBBLE（パパブブレ）公式ECストア】</h3>
                             <p class="shop-description">「PAPABUBBLE（パパブブレ）」は、バルセロナで生まれて世界中で愛されるアートキャンディ専門店。 職人がひとつひとつ手作りするキャンディは、見た目の美しさと驚きの味わいで幅広いお客様に大人気です。  国内では12店舗展開し、SNSの総フォロワー数は40万人の大人気ブランド。 自分で食べるのはもちろん、おしゃれなプチギフトとしても喜ばれる商品です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.43%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.43</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1354,7 +1655,7 @@
                             <h3 class="shop-name">日本橋いなば園 公式オンラインショップ</h3>
                             <p class="shop-description">有明海産わけあり海苔や国産黒烏龍茶ペットボトルなど、こだわりの食品を販売する「日本橋いなば園 公式オンラインショップ」です。 店内全品送料無料でお買い求め安くなっております。（沖縄を除く）</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1373,7 +1674,7 @@
                             <h3 class="shop-name">イヴ・サンローラン・ボーテ公式オンラインブティック</h3>
                             <p class="shop-description">イヴ・サンローラン（YVES SAINT LAURENT）公式オンラインブティック。イヴ・サンローランの全製品を24時間365日いつでも、お好きな時に安心してご購入いただけます。オンラインブティック限定製品や、配送料無料キャンペーン、ギフトラッピングなどのサービスも実施。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 4.24%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">4.24</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1382,7 +1683,7 @@
                             <h3 class="shop-name">THE BODY SHOP(ザ・ボディショップ)</h3>
                             <p class="shop-description">英国生まれのザボディショップ。世界各地に伝わるスキンケアの知恵に着目し、天然成分を取り入れたスキンケア、ヘアケア、メイクアップ商品をお届けしています。創業は1976年、イギリスの女性アニータ・ロディックが南海岸の街ブライトンで、25種類の手作り化粧品を販売するお店を開いたのが始まりです。現在では、世界64カ国に2，500以上の店舗を展開しています。豊かな香りに心地よい使用感、そしてたっぷり詰まった自然の恵み。ザボディショップの製品のひとつひとつには、1976年の創業時から守り続けてきたエシカルでナチュラルな想いが込められています。 ★注目ポイント★ 1.自然の原料をベースにしたボディケア、スキンケア、ヘアケア、メイクアップ商品を販売しています。 2.シンプルなパッケージを使い、ユニークな商品をお客様にお届けしております。 3.季節に合わせたギフトやオンラインショップ限定商品が大人気です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.23%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.23</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1391,7 +1692,7 @@
                             <h3 class="shop-name">シュウ ウエムラ</h3>
                             <p class="shop-description">シュウ ウエムラ（shu uemura）公式通販サイト。「自然、科学、アート」の融合をコンセプトにした、シンプル&amp;リッチなシュウ ウエムラ製品を24時間365日いつでも安心してお買い求めいただけます。また配送料無料キャンペーンやギフトラッピングなどWEBならではの特典もご用意しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 4.24%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">4.24</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1400,7 +1701,7 @@
                             <h3 class="shop-name">DHCオンラインショップ</h3>
                             <p class="shop-description">DHC公式オンラインショップです。コスメ・健康食品・ダイエットサポート商品をはじめ、ファッション・インナーウェア・遺伝子検査・ペット商品・お酒・書籍までバラエティ豊かに展開中！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.45%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.45</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1409,7 +1710,7 @@
                             <h3 class="shop-name">ファンケル マイルドクレンジングオイル</h3>
                             <p class="shop-description">ファンケル（FANCL）通信販売だけの特別価格！マイルドクレンジングオイルのお得なお試しセットはこちら。お支払い手数料無料。代引き手数料無料。お得なポイント制度。コンビニ支払いOK。通販初めての方送料無料。日付時間帯指定OK。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">新規申込で 678点</span>
+                                <span class="reward-rate">新規申込で <span class="rate-number">678</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1418,7 +1719,7 @@
                             <h3 class="shop-name">ホットペッパービューティ</h3>
                             <p class="shop-description">ホットペッパービューティ（Hot pepper beauty）は美容院・美容室・ヘアサロンが探せる日本最大級の検索・予約サイト。355万点あるスタイルや、ブログ、口コミをチェックして、気になるスタイリストを直接指名。２４時間いつでもネット予約OK。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">新規予約＋来店で 134点</span>
+                                <span class="reward-rate">新規予約＋来店で <span class="rate-number">134</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1427,7 +1728,7 @@
                             <h3 class="shop-name">@cosme SHOPPING（アットコスメショッピング）</h3>
                             <p class="shop-description">日本最大級の化粧品クチコミサイト「＠ｃｏｓｍｅ」の姉妹版ショッピングサイト 『＠ｃｏｓｍｅ ｓｈｏｐｐｉｎｇ（アットコスメショッピング）』</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1436,7 +1737,7 @@
                             <h3 class="shop-name">イオンボディオンラインショップ</h3>
                             <p class="shop-description">美と健康のライフスタイルショップ　「AEON BODY（イオンボディ）」は 全国のイオンモール9店舗とオンラインショップを展開する、＜100%イオングループ＞の専門店。 世界のオーガニックコスメ、ナチュラルフード、アロマなどバラエティ豊富な商品を1万点以上取り扱い。 「美容」　「癒し」　「食事」　「健康」より健やかに、より美しく生きたいという願いを、カラダの内と外から叶える。 そんな「イイモノ」と「いいコト」がたくさん見つかるショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1445,7 +1746,7 @@
                             <h3 class="shop-name">株式会社ルネサンス運営 公式オンラインショップ</h3>
                             <p class="shop-description">スポーツクラブを長年運営してきたルネサンス（RENAISSANCE）が開発したサプリメントや自宅で運動する環境を整えるトレーニングギアなど健康関連商品を販売するスポーツクラブルネサンス公式オンラインショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 4.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">4.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1454,7 +1755,7 @@
                             <h3 class="shop-name">OZIOnet(オージオ ネット)</h3>
                             <p class="shop-description">「シンプルケアで美しく」をモットーに、時間をかけず・手間をかけず・お手頃価格でとの女性の願いを叶えます。 忙しい大人の女性のために、お求めやすい価格の商品を展開しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 3.81%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">3.81</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1463,7 +1764,7 @@
                             <h3 class="shop-name">アットスタイル</h3>
                             <p class="shop-description">全商品国内正規品を取り扱っているコンタクトレンズショップのアットスタイルです。 全品処方箋無しで購入できるコンタクト通販サイトとして現在グループ累計300万人以上にご購入いただいております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 3.05%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">3.05</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1472,7 +1773,7 @@
                             <h3 class="shop-name">サプリンクス</h3>
                             <p class="shop-description">当店はアメリカの最新サプリメント&amp;コスメ約3000種を【現地価格】でロサンゼルスより個人輸入代行でお届けするサプリメントストアです! 販売実績20年以上!日本の店頭では入手困難で高機能なアメリカ製サプリメントを多数取り扱っています。 日本語カスマターセンターがあるので、国内通販感覚で気軽にご利用可能。 安心便利な後払いやAmazon Payが利用可能。初めてのお客様にも抵抗感が少なくご利用いただけます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1481,7 +1782,7 @@
                             <h3 class="shop-name">MYTREX 公式オンラインストア</h3>
                             <p class="shop-description">”ひらけ、美しい人生“。MYTREXは、「習慣そのものを健康的に」独自のテクノロジーと機能美で、日常にとけ込むセルフケアをご提案します。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1490,7 +1791,7 @@
                             <h3 class="shop-name">メルヴィータ公式</h3>
                             <p class="shop-description">メルヴィータは、ロクシタン グループのフランス発の認証オーガニックのコスメブランドです。アルガンオイルをはじめとするオイル美容のパイオニアであると同時に、世界中の化粧品で初めてエコサートを取得した企業の1つで、「生きた自然をそのままに」を理念としながら、世界中からオーガニック植物成分を厳選し、肌へのアプローチを追求した製品づくりを行っています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1499,7 +1800,7 @@
                             <h3 class="shop-name">DEPACO</h3>
                             <p class="shop-description">株式会社大丸松坂屋百貨店が運営しております「コスメ専門オンラインストア」です。 百貨店運営オンラインショップならではの安心感！ 税込5,400円以上のお買い上げで送料無料！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.14%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.14</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1508,7 +1809,7 @@
                             <h3 class="shop-name">サンスターオンラインショップ</h3>
                             <p class="shop-description">サンスター公式通販サイトでは、緑でサラナ、健康道場シリーズやエクイタンス化粧品・美容食品をはじめ、オーラル製品、医薬品、ヘアケア製品など、皆様の「美と健康」をサポートするアイテムを多数取り扱っております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.40%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1517,7 +1818,7 @@
                             <h3 class="shop-name">ドクターシーラボ公式オンラインショップ</h3>
                             <p class="shop-description">皮膚の専門家発の化粧品・健康食品・美容機器のお買い求めは安心の公式オンラインショップです。  ベスコス多数受賞のアクアコラーゲンゲルや口コミ・SNSでも話題のVC100エッセンスローションEXなど多数品揃え。 公式オンラインショップ限定の特別なキャンペーンやプレゼントなど様々な特典もご用意しています。 大切な方へのプレゼントにギフトラッピングサービスも行っております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.20%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1526,7 +1827,7 @@
                             <h3 class="shop-name">ロクシタンオンラインショップ</h3>
                             <p class="shop-description">ロクシタンは、植物原料を主原料に化粧品(スキンケア、ボディケア、バスケア)・フレグランスなどを製造・販売しているブランドです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.20%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1545,7 +1846,7 @@
                             <h3 class="shop-name">じゃらんゴルフ</h3>
                             <p class="shop-description">ゴルフ場予約、検索ならリクルート運営の［じゃらんゴルフ］日本全国のゴルフ場から、あなたの好みにピッタリのプランを、おすすめプランや、コース情報、口コミから探せます。予約をすればするほどポイントが貯まるので、お得にゴルフをお楽しみ頂けます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">新規予約で 1781点</span>
+                                <span class="reward-rate">新規予約で <span class="rate-number">1,781</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1554,7 +1855,7 @@
                             <h3 class="shop-name">「ヴィクトリアゴルフ」公式通販サイト</h3>
                             <p class="shop-description">全国で147店舗を展開するゴルフ用品店「ヴィクトリアゴルフ（Victoria Golf）」の公式通販サイト。ゴルフ専門店としては国内最大級の品揃えと豊富な在庫により、最新用品をはじめ国内外の大手スポーツメーカーとのコラボレーション商品や希少価値の高い商品まで幅広いゴルフ用品を取り揃えています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.54%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.54</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1563,7 +1864,7 @@
                             <h3 class="shop-name">L.L.Bean</h3>
                             <p class="shop-description">米国メイン州にて1912年創業の、品質にこだわる世界中のお客様から選ばれてきたアウトドア・ブランド。キャンプ、ハイキング、スポーツに適した機能性ウエア、着心地良いカジュアルウエア、シューズ、リュックなど。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.85%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.85</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1572,7 +1873,7 @@
                             <h3 class="shop-name">「エルブレス」公式通販サイト</h3>
                             <p class="shop-description">首都圏を中心に店舗を展開するアウトドア用品店「エルブレス（L-Breath）」の公式通販サイト。アウトドア専門店としては国内最大級の品揃えと豊富な在庫により、最新用品をはじめ国内外の大手スポーツメーカーとのコラボレーション商品や希少価値の高い商品まで幅広いアウトドア用品を取り揃えています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.54%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.54</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1581,7 +1882,7 @@
                             <h3 class="shop-name">ゴルフダイジェスト・オンライン</h3>
                             <p class="shop-description">インターネット上でゴルフ用品【GDOゴルフショップ】の購入やゴルフ場予約【GDOゴルフ場予約】ができたり、ゴルフレッスンや国内外のトーナメント情報の入手ができるゴルフ総合サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.89%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.89</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1590,7 +1891,7 @@
                             <h3 class="shop-name">「スーパースポーツ ゼビオ」公式通販サイト</h3>
                             <p class="shop-description">全国で150店舗を展開し野球、サッカー、ランニング、スポーツウェアなど総合スポーツ用品を扱う「スーパースポーツゼビオ（SUPERSPORTS XEBIO）」の公式通販サイト。国内最大級の品揃えと豊富な在庫により、最新用品をはじめ国内外の大手スポーツメーカーとのコラボレーション商品や希少価値の高い商品まで幅広いスポーツ用品を取り揃えています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.70%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.70</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1599,7 +1900,7 @@
                             <h3 class="shop-name">メガスポーツオンラインショップ</h3>
                             <p class="shop-description">MEGA SPORTS(メガスポーツ)は、全国に100店舗以上展開している、イオングループのスポーツ専門店です。 メガスポーツオンラインショップでは、野球、サッカー、ランニングなど総合スポーツ用品をはじめ アウトドア用品の有名ブランド多数取り扱い、豊富な品ぞろえとなっております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1608,7 +1909,7 @@
                             <h3 class="shop-name">パタゴニア アウトドアウェア</h3>
                             <p class="shop-description">パタゴニア（patagonia）の公式サイト。アウトドアスポーツに適した機能的なウェアをパタゴニア日本支社が販売しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1617,7 +1918,7 @@
                             <h3 class="shop-name">プーマ オンラインストア</h3>
                             <p class="shop-description">PUMA（プーマ）公式オンラインストア。限定商品や最新のトレンドアイテムまで多くを取り揃え。メンズ・レディース共に豊富なサイズ展開で便利にお買い物。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.02%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.02</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1626,7 +1927,7 @@
                             <h3 class="shop-name">Teva(R) 公式サイト（テバ公式サイト）</h3>
                             <p class="shop-description">Teva(R) 日本語版公式サイト。 1984年グランドキャニオンの一人の若きリバーガイドが、世界で初めてスポーツサンダルを開発しフットウェア業界に革命を起こしました。雨や川、海などの水が取り巻くアウトドアの環境において、「To Play (楽しむ)」「To Protect (守る)」という考え方に、四半世紀にわたる 知識とテクノロジーのもと商品開発を行っています。スポーツサンダル、トレイルシューズ、バイクシューズ、スノーブーツなど公式オンラインショッピングサイトにてご購入頂けます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1635,7 +1936,7 @@
                             <h3 class="shop-name">BURTON ONLINE STORE</h3>
                             <p class="shop-description">スノーボード＆アウトドアブランド Burton（バートン）の公式通販サイト。スノーボードグッズはもちろん、オフシーズンも活躍するアパレル、バッグなども展開しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.60%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.60</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1644,7 +1945,7 @@
                             <h3 class="shop-name">MIZUNO SHOP ミズノ公式オンラインショップ</h3>
                             <p class="shop-description">ミズノオフィシャルウエブサイトだから実現できる確かな品揃えと安心のサービス！あらゆるスポーツシーンからライフスタイルまで幅広くサポート。 会員登録でお得なポイントサービスやバースデークーポン等でお買い物いただけます！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.00%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1653,7 +1954,7 @@
                             <h3 class="shop-name">サッカーショップ加茂</h3>
                             <p class="shop-description">サッカーショップ加茂（SOCCER SHOP KAMO）は日本全国に23店舗を展開するサッカー用品の専門店です。日本代表、Jリーグ、海外代表チーム、海外クラブのウェアやグッズ、サッカースパイク、フットサルシューズのほか、キッズ商品も取り揃えております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1662,7 +1963,7 @@
                             <h3 class="shop-name">アウトドア＆フィッシング　ナチュラム</h3>
                             <p class="shop-description">ナチュラム（naturum）は世界最大級のアウトドア 用品とフィッシング用品の専門店です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1671,7 +1972,7 @@
                             <h3 class="shop-name">サイクルベースあさひ</h3>
                             <p class="shop-description">一般シティサイクル、電動自転車はもちろんのこと、クロスバイクやマウンテンバイク、ロードバイクの品数も充実！サイクルベースあさひ（asahi）のネット通販です。 通常の配送の他、全国の実店舗で送料無料でお受け取りもいただけます。 また、ウェアやパーツも、お客様の声を元にオリジナルで開発し、お手頃な価格でラインナップしています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1680,7 +1981,7 @@
                             <h3 class="shop-name">自転車ショップ【cyma-サイマ-】</h3>
                             <p class="shop-description">一般的なママチャリから、ブリヂストン・Panasonic等の電動自転車まで幅広い車種を扱う日本最大級の自転車通販サイト。 世の中で一番需要がある自転車を、 購入しやすい価格とサービスでお客様に提供しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.76%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1689,7 +1990,7 @@
                             <h3 class="shop-name">世界最大級オンラインサイクルショップWiggle</h3>
                             <p class="shop-description">サイクリング・ランニング・スイミング用品を取り扱う世界でも最大級のオンラインショップです。イギリスでは人気No.1のWiggleはロードバイク、マウンテンバイク、トライアスロン用品までスポーツ用品を幅広く取り揃えています。品揃えは、日本国内のどこのサイトより多く、また価格も国内価格より安いのが魅力です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1698,7 +1999,7 @@
                             <h3 class="shop-name">つるやオンライン</h3>
                             <p class="shop-description">全国に約100店舗を展開する、ゴルフ用品の大型専門店「つるやゴルフ」の公式オンラインショップです。 在庫ありの商品は、当サイト営業日14時までのご注文で即日発送いたします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.52%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.52</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1707,7 +2008,7 @@
                             <h3 class="shop-name">タイヤワールド館ベスト</h3>
                             <p class="shop-description">タイヤとアルミホイールの専門店、タイヤワールド館ベスト通販サイト。ブリヂストン、ダンロップなど国産ブランドを中心に国内最大級の品揃え。タイヤの購入から取付店の予約までこちらのサイトで完結できます。全国のグーピット取付店の中から最寄りのお店をご案内します。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.20%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1716,7 +2017,7 @@
                             <h3 class="shop-name">女性専用ジムFURDI(ファディー)</h3>
                             <p class="shop-description">全国70店舗以上展開。王様のブランチやWBSにも掲載された女性専用ジム。 “大きなスマホ”で楽しくトレーニング！ 定期カウンセリングで悩みや目標に的確アドバイス！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">無料体験後、入会完了で 2800点</span>
+                                <span class="reward-rate">無料体験後、入会完了で <span class="rate-number">2,800</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1725,7 +2026,7 @@
                             <h3 class="shop-name">テーラーメイド</h3>
                             <p class="shop-description">最新テクノロジーでパフォーマンスを極める。トッププロも信頼するテーラーメイドのゴルフクラブ。 新規会員登録で新商品20％／セール品10％OFFクーポン進呈。 会員登録で割引クーポンなどの会員特典多数あり。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1744,7 +2045,7 @@
                             <h3 class="shop-name">ロフトネットストア</h3>
                             <p class="shop-description">ロフト公式ネットストア。LOFTでは文房具からコスメ、キャラクター雑貨やインテリアなどを取り扱う生活雑貨の専門店。nanacoポイントが貯まったりセブン‐イレブンでの店舗受け取りができる便利な通販サイト。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.43%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.43</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1753,7 +2054,7 @@
                             <h3 class="shop-name">いぬのきもち・ねこのきもち</h3>
                             <p class="shop-description">愛犬・愛猫と飼い主さんの関係がもっと深く、毎日が楽しくなりますように、毎月お届けする生活総合雑誌です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購読申し込み（1か月払い）で 120点</span>
+                                <span class="reward-rate">購読申し込み（1か月払い）で <span class="rate-number">120</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1762,7 +2063,7 @@
                             <h3 class="shop-name">ペットゴー　公式オンラインストア</h3>
                             <p class="shop-description">ペットゴー（petgo）は「ペットライフをハッピーに！世の中をあったかく！」 をコンセプトに愛犬・愛猫、飼い主様へ様々な商品・サービスをお届けしております。 弊社の特徴は非常に高い購入率とリピート率です。 ■犬・猫の療法食が送料無料商品多数 ■ノミ・マダニ駆除薬のフロントラインプラスなどの医薬品が大幅割引で販売中 ■16時までの配送で当日発送商品多数取り扱い</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1771,7 +2072,7 @@
                             <h3 class="shop-name">犬・猫の総合情報サイト『PEPPY（ペピイ）』</h3>
                             <p class="shop-description">犬猫総合情報サイト。ペットグッズのオンラインショッピング。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1780,7 +2081,7 @@
                             <h3 class="shop-name">ル・クルーゼ公式オンラインショップ</h3>
                             <p class="shop-description">フランス伝統の丹念な製法を守りながら、常に革新的なアイディアをもとに、高品質なお鍋などのキッチンウェアを作り続けています。繊細なグラデーションが施された上質なデザインと、使う人を楽しくさせるカラフルな色づかいで、豊富なバリエーションの中からシーンに合わせて、組み合わせ自由自在。インテリアやファッションのようにキッチンからテーブルまでをトータルにデザインできるのはル・クルーゼ（LE CREUSET）ならではです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.54%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.54</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1789,7 +2090,7 @@
                             <h3 class="shop-name">ACTUS online (アクタス公式通販)</h3>
                             <p class="shop-description">インテリアショップACTUS(アクタス)の公式通販サイトです。 家具・雑貨・ギフトから子供用家具まで取り揃え、丁寧な暮らしを提案しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.26%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.26</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1798,7 +2099,7 @@
                             <h3 class="shop-name">北欧デザインのカーテン、ラグ、マット専門店【cucan クーカン】</h3>
                             <p class="shop-description">ママに爆発的人気！SNSで話題沸騰中！特許取得の下敷き専用ラグ「ふかぴた」をはじめ カーテン、ラグ・カーペット、玄関マット・キッチンマット、雑貨、寝具、ファブリック中心のインテリア商品を主に取り扱っています。 1cm単位で注文可能なオーダーカーテンなど、常時1000点以上の豊富な品揃えです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 6.11%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">6.11</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1807,7 +2108,7 @@
                             <h3 class="shop-name">BRUNO online（ブルーノ）</h3>
                             <p class="shop-description">「BRUNO　online（ブルーノ）」は、BRUNO・Terracuore・MILESTOなどを展開する 株式会社イデアインターナショナルが運営する通販サイトです。ブランド直営サイトならではの商品やサービスを取り揃えて、みなさまのご利用をお待ちしております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.09%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.09</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1816,7 +2117,7 @@
                             <h3 class="shop-name">三条たたみ</h3>
                             <p class="shop-description">畳の製造で日本一「三条たたみ」の畳張り替え。TVCM放送中!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 2667点</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">2,667</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1825,7 +2126,7 @@
                             <h3 class="shop-name">グリーンパン オフィシャルショップ</h3>
                             <p class="shop-description">世界で初めてフッ素樹脂を使わないフライパンを開発したベルギー生まれの「グリーンパン」公式オンラインショップです。 良質な食材を選ぶように、調理器具にもこだわって欲しい。 地球にやさしい、エコなフライパンです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1834,7 +2135,7 @@
                             <h3 class="shop-name">AND PLANTS</h3>
                             <p class="shop-description">観葉植物・お花のオンラインストアです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.40%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1843,7 +2144,7 @@
                             <h3 class="shop-name">大人の焼き物オンラインショップ</h3>
                             <p class="shop-description">大人が惚れる焼き物紹介マガジン「大人の焼き物」の公式通販です。人気作家や窯元の陶器・磁器・ガラスなどのクラフトのうつわをセレクトしております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1852,7 +2153,7 @@
                             <h3 class="shop-name">ルミナスクラブ</h3>
                             <p class="shop-description">株式会社ドウシシャが運営する国内スチールラックシェアNo1「ルミナス」のメーカー直営公式サイトです。 キッチン収納や衣類収納など、ご家庭向けの収納ラックからプロも愛用の業務向けラックまで、メーカーならではの豊富なサイズラインナップ・シリーズ展開が当サイトの魅力です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.20%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1861,7 +2162,7 @@
                             <h3 class="shop-name">オフィス家具のLOOKIT!</h3>
                             <p class="shop-description">インテリア、オフィス家具を中心に、様々な商品を取り扱う総合通販LOOKIT!公式サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.60%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.60</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1880,7 +2181,7 @@
                             <h3 class="shop-name">カメラのキタムラ ネットショップ</h3>
                             <p class="shop-description">北海道から沖縄まで日本最大級の専門チェーン「カメラのキタムラ」だから安心です。デジタルカメラはもちろんデジタル一眼レフ、ミラーレス一眼や交換レンズから人気の大型家電まで話題の商品を取り揃えています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.43%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.43</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1889,7 +2190,7 @@
                             <h3 class="shop-name">ノジマオンライン - 日本最大級のデジタル家電通販</h3>
                             <p class="shop-description">無料登録のメルマガにはアッと驚く情報やお買い得品が満載! 在庫有り商品は最短当日出荷!最長7年延長保証!3，300円以上で送料無料! ネットで買い物をするなら、信頼と実績のノジマの オンラインショップ「nojima online(ノジマオンライン)」!!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.43%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.43</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1898,7 +2199,7 @@
                             <h3 class="shop-name">Panasonic Store(パナソニックストア)</h3>
                             <p class="shop-description">パナソニックグループの公式直販サイトです。 お好みのスペックやカラーが選択できるノートパソコン「カスタマイズレッツノート」や 店頭では購入できないWEB限定商品、8，000品番以上の消耗品・付属品・オプションなど、 パナソニックグループの様々な商品を提供しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.28%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.28</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1907,7 +2208,7 @@
                             <h3 class="shop-name">レノボ公式オンラインショッピング</h3>
                             <p class="shop-description">【安心なお買い物ができる「レノボ・ジャパン（Lenobo japan）」公式オンラインストア】ThinkPad、IdeaPad、ThinkCentreおよび周辺機器の最新モデルをはじめ、人気モデルのキャンペーンも実施中。アフィリエイト広告限定クーポンもご用意！！！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.28%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.28</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1916,7 +2217,7 @@
                             <h3 class="shop-name">ウイルスバスター公式トレンドマイクロ・オンラインショップ</h3>
                             <p class="shop-description">トレンドマイクロ・オンラインショップ （TREND MICRO）総合セキュリティ対策ソフト　ウイルスバスター クラウドのオンライン販売。30日間無料体験版もご用意しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 6.00%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">6.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1925,7 +2226,7 @@
                             <h3 class="shop-name">EIZOダイレクト（エイゾー）</h3>
                             <p class="shop-description">EIZOの直販サイトです。 高性能な液晶テレビやPC用モニター の販売を行っています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1934,7 +2235,7 @@
                             <h3 class="shop-name">FUJIFILMプリント＆ギフト／フジフイルムモール</h3>
                             <p class="shop-description">フジフイルム（FUJI FILM）の製品をはじめ、様々な写真用品や、モールオリジナルの限定商品など数多く取り揃えております。 フォトブック作成やプリントサービスもＯＫ！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.00%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1943,7 +2244,7 @@
                             <h3 class="shop-name">Kojima.net（コジマネット）</h3>
                             <p class="shop-description">お客様のくらしを「より快適に」「より便利に」「より楽しく」します。くらし応援企業コジマのネット通販です！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1952,7 +2253,7 @@
                             <h3 class="shop-name">ノートンストア</h3>
                             <p class="shop-description">ノートンストア（Norton）は、ウイルス対策ソフト・セキュリティソフトのノートンシリーズを販売するオンラインストアです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 8.00%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">8.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1961,7 +2262,7 @@
                             <h3 class="shop-name">ソースネクスト</h3>
                             <p class="shop-description">ソースネクスト・サイトでは、AIボイスレコーダー「オートメモ」などのIoT製品や、更新料0円のウイルス対策ソフト「ZERO」シリーズ、年賀状ソフト「筆まめ」「筆王」「宛名職人」、PDF編集ソフト「いきなりPDF」など、500以上のさまざまな製品を取り扱っています。  安心してご購入いただくため、パソコンソフトが正常に動作しない場合に返品できる「安心サービス」も用意しております。  またお手頃な価格でご購入いただけるよう、毎日、厳選した製品のセールも実施中です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.00%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1970,7 +2271,7 @@
                             <h3 class="shop-name">富士通 WEB MART</h3>
                             <p class="shop-description">富士通パソコンFMVの直販サイト〓 WEB限定 〓 予算や用途に合わせて機能が選べるカスタムメイドモデルFMVをはじめ、未使用・未開封のワケありパソコンやアウトレットなど直販ならではの特価品も豊富に取り揃え！最新モデルは送料無料＆富士通保証付き！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1979,7 +2280,7 @@
                             <h3 class="shop-name">カメラのキタムラ　ネットプリント(デジカメプリント・フォトブック)</h3>
                             <p class="shop-description">＜写真業界国内NO1の「カメラのキタムラ」のネットプリントサービス＞ フジカラー純正仕上げの高画質プリントはもちろん、旅行の写真をまとめたり、お子さまの成長記録をまとめるのに人気なフォトブックを提供。 ネットで注文、お店・宅配受取が可能ネットプリントサービス。北海道から沖縄まで全国のお店で最短1時間で受け取れることが、たくさんのユーザー様に評価いただいております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.26%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.26</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1988,7 +2289,7 @@
                             <h3 class="shop-name">エレコムダイレクトショップ</h3>
                             <p class="shop-description">PC周りのアクセサリを中心に扱うエレコム（ELECOM）の安心メーカー直販ショッピングサイトです。エレコムはPCを取り巻くプロダクトを「情報生活良品」という視点でフルカバーし、多種多様なITの構築をサポートしています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.10%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.10</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1997,7 +2298,7 @@
                             <h3 class="shop-name">NEC Direct(NECダイレクト)</h3>
                             <p class="shop-description">「NEC Direct」は、NECパーソナルコンピュータ株式会社が運営するショッピングサイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.88%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.88</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2006,7 +2307,7 @@
                             <h3 class="shop-name">サンワダイレクト</h3>
                             <p class="shop-description">サンワサプライ直営通販サイトのサンワダイレクト（SANWA DIRECT）本店。2000円以上送料無料、法人のお客様歓迎！見積書・納品書・請求書払い可能！机・椅子からプリンタインク・スマートフォン関連まで何でも揃います。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.34%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.34</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2015,7 +2316,7 @@
                             <h3 class="shop-name">BroadWiMAX</h3>
                             <p class="shop-description">BroadWiMAXは使い放題のギガ放題プランをお求めやすい価格でご提供！ 持ち運びができるインターネット回線なのでどこでもインターネットが楽しめます。 最短即日開通！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">開通完了で 2000点</span>
+                                <span class="reward-rate">開通完了で <span class="rate-number">2,000</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2024,7 +2325,7 @@
                             <h3 class="shop-name">海外WiFiレンタルのグローバルWiFi</h3>
                             <p class="shop-description">海外WiFiルーターのレンタルサービスです。 グローバルWiFiがあれば、海外でも日本にいる時と同様にスマホ・PC・タブレットで 快適なインターネットの利用が可能。 おかげさまで「海外WiFiレンタルご利用者数No1」</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">利用開始で 480点</span>
+                                <span class="reward-rate">利用開始で <span class="rate-number">480</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2033,7 +2334,7 @@
                             <h3 class="shop-name">データの復旧・移行・抹消・セキュリティソフト直販サイト「AOSストア」</h3>
                             <p class="shop-description">「AOSストア（aosstore.jp）」は、データの復旧・移行・抹消・バックアップ・セキュリティソフトなどを直接販売するAOSデータ株式会社の公式通販サイトです。 AOSデータは2010年にBCNのシステムメンテナンス関連ソフト部門売上本数1位を獲得して以来、連続で年間アワードを受賞しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 5.72%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">5.72</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2042,7 +2343,7 @@
                             <h3 class="shop-name">WiFiレンタルどっとこむ</h3>
                             <p class="shop-description">WiFiレンタルどっとこむは、日本国内専用のWiFiルーターをレンタルしています。WiFiルーターがあれば、外出先でも自宅でも、いつでもスマホ、PC、タブレットなどでインターネットに接続できます。受取り返却方法もカンタンで、日本全国の空港カウンター(7ヶ所)やホテル、病院、ご自宅への宅配も行っております。また、レンタルの為、期間契約に伴う解約金等がかかりません。長期間でも短期間でもお好きなタイミングで返却でき、受取った瞬間からご利用可能です。一時帰国・引っ越し・入院・出張時などや、ご購入前のお試し利用などの一時的な利用から普段使いまで、様々な場面でご活用頂けます。複数の国内携帯電話会社のWiFiルーターをご用意しておりますので、お客様のご利用地域に合わせた最適なインターネット環境をご提供させて頂きます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">申込完了で 4.00%</span>
+                                <span class="reward-rate">申込完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2051,7 +2352,7 @@
                             <h3 class="shop-name">COVERARY</h3>
                             <p class="shop-description">日本最大級のスマホカバーブランドの公式オンラインショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2060,7 +2361,7 @@
                             <h3 class="shop-name">中古パソコンショップジャンクワールド</h3>
                             <p class="shop-description">ジャンクワー ルドは3W(地球・人・企業間のWin-Win-Win)を目指しています。環境と経済。その狭間に立ちはだかる産業廃棄物は人類が抱える大きな課題であり、循環社会の構築に多くの取り組みがなされています。私達ジャンクワールドもまた3Rの徹底はもとより物流から情報セキュリティに至るまで、あらゆる角度から企業のリサイクルプランをサポートしています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2069,7 +2370,7 @@
                             <h3 class="shop-name">中古パソコンショップ0799.jp</h3>
                             <p class="shop-description">DELLの中古パソコンを主に販売している、中古パソコンです。 また、MicrosoftのSuface Pro等、タブレットPCの在庫も豊富に入荷しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 3.05%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">3.05</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2078,7 +2379,7 @@
                             <h3 class="shop-name">SK本舗-3Dプリンターとレジンの通販</h3>
                             <p class="shop-description">「SK本舗」は3Dプリンター本体、関連機器、レジン等を総合的に販売するオンラインショップです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.80%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2087,7 +2388,7 @@
                             <h3 class="shop-name">エコレンヤフーショップ</h3>
                             <p class="shop-description">リフレッシュパソコン専門店エコレンです。 商品点数2000点以上！在庫数3000台以上！ エコレンは、現品画像、現品状態説明の方式ですので安心！ 高価格帯商品多数！大量在庫で安定供給体制！ 事業所様比率、再購入率が非常に高いです。 14時までのご注文で即日発送、そして全品送料無料です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2096,7 +2397,7 @@
                             <h3 class="shop-name">ベクターPCショップ</h3>
                             <p class="shop-description">ベクターPCショップはパソコンソフトのダウンロード販売サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で最大 3.81%</span>
+                                <span class="reward-rate">購入完了で最大 <span class="rate-number">3.81</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2105,7 +2406,7 @@
                             <h3 class="shop-name">Anker公式オンラインストア</h3>
                             <p class="shop-description">「Empowering Smarter Lives」をミッションに、“充電”のグローバル・リーディングブランド「Anker」、オーディオブランド「Soundcore」、スマートホームブランド「Eufy」、スマートプロジェクターブランド「Nebula」等を米国・日本・欧州を中心とした世界100ヶ国以上で展開するハードウェアメーカーです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 1.20%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2114,7 +2415,7 @@
                             <h3 class="shop-name">カメラのキタムラ　プリントサービス/フォトブック</h3>
                             <p class="shop-description">日本最大級の写真専門店カメラのキタムラが提供する「フォトブック」サービス</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">申込完了で 1.14%</span>
+                                <span class="reward-rate">申込完了で <span class="rate-number">1.14</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2123,7 +2424,7 @@
                             <h3 class="shop-name">BTOパソコンのVSPEC</h3>
                             <p class="shop-description">フルカスタムのBTOパソコンと組立キットを買うならココ! 302種類のPCケースと1,927種類のPCパーツから自由に選べる圧倒的な組み合わせ。 インテル社ゴールドパートナーの認定を受けた信頼の技術。 一人で5,000台以上の組み立て実績を持つ職人達による安心のサポート。 創業10余年のBTOショップの老舗が、あなたが欲しかった機能全部入りのパソコンをお届けします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 1.11%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">1.11</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2132,7 +2433,7 @@
                             <h3 class="shop-name">BTOパソコン通販 パソコンショップSEVEN</h3>
                             <p class="shop-description">BTOパソコンの通販 パソコンショップSEVENです。 低価格PCからハイエンドPCまで豊富なカスタマイズと品揃えから貴方だけのBTOでオリジナルPCを。 ハイエンドPC/ゲーミングPC/マイニング用PC/Windows11対応PCなどを特価でご提供しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.80%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2141,7 +2442,7 @@
                             <h3 class="shop-name">ストーム</h3>
                             <p class="shop-description">BTOパソコン、カスタムPCのエキスパートカンパニー　株式会社アイティーシーが運営する「ストーム」、コストパフォーマンスに優れたBTOパソコンの通販専門の販売サイト。カスタマイズが可能なBTO(Build to Order)方式が中心。デスクトップタワー型PC、キューブ型PC、省スペースPC、高品位アルミケース採用PC、サーバー・ワークステーション、ＬｉｎｕｘＰＣやゲーム推奨スペックPC等を最新仕様でカスタマイズいたします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.40%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2150,7 +2451,7 @@
                             <h3 class="shop-name">ロジテックダイレクト(Logitec直販サイト)</h3>
                             <p class="shop-description">「ロジテックダイレクト」は国産の外付けハードディスクやSSD、ハードディスクケース、ブルーレイ・DVDドライブなどを扱うメーカー通販ショップです。Web限定品やアウトレット品、再生品など、一般の店舗では販売されない製品もお取り扱いしています。また、一部他メーカーの製品を仕入れ販売しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.40%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2159,7 +2460,7 @@
                             <h3 class="shop-name">パソコンSHOPアーク</h3>
                             <p class="shop-description">PCゲーミングデバイス、ソフトからメーカーから自作マニアまで幅広いユースに人気のSanMaxブランドメモリなど他社には無いユニークなアイテムを数多く揃えております、その他PCパーツ全般、ショップオリジナルのBTOパソコンも取扱いする秋葉原のPC系SHOPです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 0.38%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">0.38</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2168,7 +2469,7 @@
                             <h3 class="shop-name">VAIOストア</h3>
                             <p class="shop-description">ノートPC・デスクトップPC・PCアクセサリーの通販・購入ならVAIO公式 オンラインストア。 VAIO公式オンラインショップでは、ご購入後3年間のサポートサービスを標準付属（無償）でご提供しています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 0.40%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2187,7 +2488,7 @@
                             <h3 class="shop-name">じゃらん</h3>
                             <p class="shop-description">宿・ホテル予約ならじゃらんnet。当日予約や今だけのじゃらん限定プランも。航空券や新幹線と宿泊のセットでさらにお得に。リッチな温泉旅館から便利なビジネスホテルまで目的に合わせて簡単検索。豊富な観光情報と口コミであなたの旅行をサポートします。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.45%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.45</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2196,7 +2497,7 @@
                             <h3 class="shop-name">旅行予約のエクスペディア</h3>
                             <p class="shop-description">航空券とホテルを一緒に予約することでホテル代が最大全額OFF！ エクスペディアの最安値。年中無休の日本語サポート。Expedia® Rewards。変更/キャンセル料金なし。世界で500以上の航空会社。世界で50万件以上のホテル。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 2.12%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">2.12</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2205,7 +2506,7 @@
                             <h3 class="shop-name">近畿日本ツーリスト　国内</h3>
                             <p class="shop-description">近畿日本ツーリストが提供する国内ツアー・国内宿泊サービスのオンライン予約プログラムです。会員登録不要、そのうえ当日現地払い・事前払いが選べます。国内ツアー・国内宿泊予約ともに代金に応じた支援金をお支払い致します。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.89%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.89</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2214,7 +2515,7 @@
                             <h3 class="shop-name">Surprice (サプライス)</h3>
                             <p class="shop-description">お得な海外格安航空券ならSurpriceにおまかせ！海外格安航空券を検索、オンラインでらくらく予約OK。期間限定の激安航空券が出ることもあり、要チェック。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.89%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.89</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2223,7 +2524,7 @@
                             <h3 class="shop-name">【JTB】海外旅行</h3>
                             <p class="shop-description">海外旅行はJTBで。安心と信頼のルックJTBや、お手頃価格が魅力のJTBお買得旅、ネットのみ掲載のWeb専用商品など、海外ツアーの検索・予約ができます。オンライン決済はもちろん、ネットで予約・お店で支払い＆受取が選べるのはJTBだけ。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.80%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2232,7 +2533,7 @@
                             <h3 class="shop-name">JTB 国内旅行・ツアー予約</h3>
                             <p class="shop-description">他社にはない魅力的なプランと豊富な在庫。高級旅館・ホテルから、 お得なシティホテル、大人気のディズニーホテルまで24時間オンライン予約可能です。 また、JRや航空券(JAL ，ANA)などの交通と宿泊がセットになったプランも好評です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.85%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.85</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2241,7 +2542,7 @@
                             <h3 class="shop-name">じゃらんパック</h3>
                             <p class="shop-description">『じゃらんパック』で航空券+宿をセットで簡単予約。 オリジナルセットプランで自分だけの国内ツアーを作れます。 パックだからこその安さ、さらにポイントとマイルがダブルでたまる！ 割引クーポンやキャンペーンも多数掲載！ 『じゃらんパック』で自由でお得な旅を楽しもう♪</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.45%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.45</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2250,7 +2551,7 @@
                             <h3 class="shop-name">ジャルパック　海外ツアー</h3>
                             <p class="shop-description">JALパックなら、観光・食事付きで安心のツアーコンダクター同行ツアーから、航空券と宿泊を自由に組み立てられる「JALダイナミックパッケージ」をご用意！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.88%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.88</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2259,7 +2560,7 @@
                             <h3 class="shop-name">ジャルパック　国内ツアー</h3>
                             <p class="shop-description">ジャルパックなら、北海道から沖縄離島までJALグループ便のネットワークを活用した多彩なツアーをご用意。フライト+宿泊を自由に組み合わせできる「JALダイナミックパッケージ」は、出発前日の16時59分まで予約可能！豊富なオプションも一括購入可能！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.80%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2268,7 +2569,7 @@
                             <h3 class="shop-name">スカイチケット 海外格安航空券予約サイト</h3>
                             <p class="shop-description">格安航空券を一括比較！スカイチケット（skyticket）なら24時間簡単予約。リアルタイム最安値情報・年中無休の電話サポート可・24時間オンライン申込可能・クレジットカードも利用可・海外レンタカー予約・各種支払方法有り・コンビニ決済も利用可能。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約＋利用で 416点</span>
+                                <span class="reward-rate">予約＋利用で <span class="rate-number">416</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2277,7 +2578,7 @@
                             <h3 class="shop-name">日本旅行</h3>
                             <p class="shop-description">国内旅行や海外旅行のことなら日本旅行！お得なツアーを多数取り揃えております。 家族旅行から女子旅、ひとり旅、日帰り、出張まで、目的に応じたプランからご希望の旅行が見つかるはず♪</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">国内ツアー予約で 509点</span>
+                                <span class="reward-rate">国内ツアー予約で <span class="rate-number">509</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2286,7 +2587,7 @@
                             <h3 class="shop-name">ホテルズドットコム（Hotels.com）</h3>
                             <p class="shop-description">世界最大級の宿泊施設予約サイト、ホテルズドットコム（Hotels.com） !  国内も海外も、ご希望通りの宿泊先を探して、簡単に予約できるホテルズドットコム。 出張やレジャー問わず、使いやすい宿泊予約サービスの提供に努めています。 ラスベガスのお得なホテルも、タイのツリーハウスも、絶景のヴィラも、サクッと手軽に検索完了。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 1.34%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">1.34</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2295,7 +2596,7 @@
                             <h3 class="shop-name">Relux（リラックス）　高級ホテル・高級旅館の宿泊予約</h3>
                             <p class="shop-description">Relux（リラックス）は、全国から満足度の高い一流ホテル・旅館を厳選し、どこよりもお得に宿泊をすることができる宿泊予約サービスです。宿泊プランは安心の最低価格保証付き！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.89%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.89</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2304,7 +2605,7 @@
                             <h3 class="shop-name">るるぶトラベル《公式》 | 国内旅行・全国の宿を簡単検索</h3>
                             <p class="shop-description">るるぶトラベルでお得な宿泊予約！ビジネスホテルから旅館・高級ホテルまで多数掲載。ビジネスホテルが充実。自宅で簡単予約。当日予約OK。便利なテーマパーク周辺宿。24時間予約。1度は泊まりたい高級旅館。ポイント貯まる。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約金額の 0.85%</span>
+                                <span class="reward-rate">予約金額の <span class="rate-number">0.85</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2313,7 +2614,7 @@
                             <h3 class="shop-name">エアトリ（国内航空券）</h3>
                             <p class="shop-description">エアトリは、日本国内のすべての航空会社一括比較検索ができ、お得なチケットをお気軽にお求めいただけます。 同じ路線でも航空会社で値段が異なる各種国内線の格安航空券を一覧で比較できるため、 最安値の激安航空券を見つけやすいサイトとなっています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 610点</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">610</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2322,7 +2623,7 @@
                             <h3 class="shop-name">格安航空券センター</h3>
                             <p class="shop-description">ANA・JAL・スカイマーク・スターフライヤー等の航空券販売専門サイトの「スカイ・シー格安航空券センター」</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約完了で 400点</span>
+                                <span class="reward-rate">予約完了で <span class="rate-number">400</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2331,7 +2632,7 @@
                             <h3 class="shop-name">スカイ・シー格安航空券モール|国内線販売</h3>
                             <p class="shop-description">格安航空券モールは国内最大級の国内線販売サイトです。ANA・JAL・スカイマークやLCCなどの、人気の飛行機チケットを一括で比較・予約・購入ができます。 フライト3時間前まで予約が出来るので、急な出張でも安心！簡単&amp;スピーディに格安チケットを予約する事が可能です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 400点</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">400</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2340,7 +2641,7 @@
                             <h3 class="shop-name">たびらいレンタカー予約</h3>
                             <p class="shop-description">レンタカー比較といえば、たびらいレンタカー。 品質面やサービス面で安心できる大手レンタカー会社のクルマを中心に、定価の最大50%OFFでご予約いただけます。 カーナビ・消費税・ETC車載器・免責補償費がすべて込みの表示価格だから、料金比較がとっても簡単！ レンタカー専門予約サイトとして、400万台の予約実績があります。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約完了で 92点</span>
+                                <span class="reward-rate">予約完了で <span class="rate-number">92</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2349,7 +2650,7 @@
                             <h3 class="shop-name">トクー！</h3>
                             <p class="shop-description">トクー！は、他社にはマネのできない圧倒的な安さを実現しています。 過去1年間の平均割引率はなんと３０％！！ 宿泊回数や宿泊人数が多ければ尚更「トクー！」の安さを実感できます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">有料会員登録で 400点</span>
+                                <span class="reward-rate">有料会員登録で <span class="rate-number">400</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2358,7 +2659,7 @@
                             <h3 class="shop-name">ゆめやど</h3>
                             <p class="shop-description">平日宿泊が圧倒的にお得な宿泊予約サイト「ゆめやど」</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">宿泊完了で 1.20%</span>
+                                <span class="reward-rate">宿泊完了で <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2367,7 +2668,7 @@
                             <h3 class="shop-name">JAMJAMライナー&amp;JAMJAMツアー</h3>
                             <p class="shop-description">日本ユース旅行が販売する高速バス＆バスツアーの販売プログラムです。 アプライジンググループのジャムジャムエクスプレスは、全国各地へ「JAMJAM LINER」「ジャムジャムライナー」のブランドで高速路線バスを運行しております。 アプライジンググループでは、旅行部門である日本ユース旅行が販売を、バス会社のジャムジャムエクスプレスが運行を担っています。 ジャムジャムエクスプレスのサイトではジャムジャムライナーの商品を購入いただけます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">申込完了で 1.11%</span>
+                                <span class="reward-rate">申込完了で <span class="rate-number">1.11</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2376,7 +2677,7 @@
                             <h3 class="shop-name">skyticket レンタカー</h3>
                             <p class="shop-description">skyticket レンタカー は、北海道~沖縄離島まで全国47都道府県・60社以上のレンタカー会社と提携している国内最大級のレンタカー予約サイトです。ニッポンレンタカーやタイムズカーレンタルなど大手レンタカー会社はもちろん、地方の格安レンタカーも含めて幅広いお得なプランの最安値検索ができます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">利用完了で 1.11%</span>
+                                <span class="reward-rate">利用完了で <span class="rate-number">1.11</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2385,7 +2686,7 @@
                             <h3 class="shop-name">【J-TRIP】国内旅行・国内ツアーのジェイトリップツアー</h3>
                             <p class="shop-description">日本航空（JAL）の飛行機で行く格安旅行のジェイトリップツアー。北海道から沖縄まで…おトクなパッケージツアーを多数ご用意！スマートフォン・PC・タブレットから24時間かんたんにオンライン予約OK。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約完了で 0.76%</span>
+                                <span class="reward-rate">予約完了で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2394,7 +2695,7 @@
                             <h3 class="shop-name">スカイパックツアーズ</h3>
                             <p class="shop-description">航空会社「スカイマーク」専売のパッケージツアー販売会社です。 スカイマーク就航路線で往復航空券＋宿泊、オプション等のパッケージ販売をしています。 スカイマーク専売ならではの安心感！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約完了で 0.76%</span>
+                                <span class="reward-rate">予約完了で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2403,7 +2704,7 @@
                             <h3 class="shop-name">HIS(エイチ・アイ・エス)海外・国内旅行</h3>
                             <p class="shop-description">海外旅行・国内旅行はエイチ・アイ・エス！豊富なラインナップから希望に合ったご旅行を選択いただけます。 海外では現地支店が24時間日本語サポート！安心の旅行をご提供します。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約後、搭乗・宿泊・催行で 0.40%</span>
+                                <span class="reward-rate">予約後、搭乗・宿泊・催行で <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2412,7 +2713,7 @@
                             <h3 class="shop-name">読売旅行ツアー申込み</h3>
                             <p class="shop-description">国内・海外旅行を企画販売する【読売旅行】公式サイト</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">参加完了で 0.80%</span>
+                                <span class="reward-rate">参加完了で <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2431,7 +2732,7 @@
                             <h3 class="shop-name">ゼクシィ内祝い</h3>
                             <p class="shop-description">結婚内祝いは、大切な両親・親戚・同僚・友人などからいただいた結婚祝いへのお返しです。そんな大切な内祝いをしっかり準備して贈れるのが、結婚するすべての人を応援するゼクシィがプロデュースした「ゼクシィ結婚内祝い」です。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 200点</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">200</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2440,7 +2741,7 @@
                             <h3 class="shop-name">シャディ ギフトモール</h3>
                             <p class="shop-description">「シャディ（shaddy）ギフトモールは、ギフト専門店『シャディ株式会社』の公式通販サイトです。・創業1926年の全国約3000店が加盟する地域密着の店舗・新規会員登録＆メルマガ登録頂くと5000円以上で使える500円クーポン◆取扱い商品　カタログギフト、食品、お酒、雑貨、家電、石鹸洗剤等◆無料サービス　のし、包装、ラッピング、紙袋　写真・動画を使ったオリジナルギフトカード※一部、産地直送品等不可の商品もございます</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 2.23%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">2.23</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2449,7 +2750,7 @@
                             <h3 class="shop-name">e87.com(千趣会イイハナ)</h3>
                             <p class="shop-description">千趣会グループの花とギフトの専門ショップです。 誕生日や結婚祝いに、母の日や父の日などのイベントに、季節の旬のお花を使った商品を豊富にご用意しております。 また、お届けしたフラワーギフトには品質保証をお約束したガイド「プロミスブック」を添えてお届けする など、イイハナでは日々贈り主様も安心してお求めいただけるよう取り組んでおります。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2458,7 +2759,7 @@
                             <h3 class="shop-name">婦人画報のお取り寄せ</h3>
                             <p class="shop-description">婦人画報編集部が選び抜いた、日本のよきモノ、世界のよきモノを購入できるお取り寄せ通販サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 1.20%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2467,7 +2768,7 @@
                             <h3 class="shop-name">日比谷花壇公式オンラインショップ</h3>
                             <p class="shop-description">日比谷花壇は全国に直営100店舗以上を持つフラワーショップです。オンラインショッピングでは、季節やイベントにあわせたフラワーギフトを販売しております。日比谷花壇のデザイナーが特別にデザインしたデザイナーズシリーズや季節のお花など数多くの商品を取り揃えております。贈る方の気持ちが伝わる、ギフトを企画・ご提案しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2476,7 +2777,7 @@
                             <h3 class="shop-name">青山フラワーマーケット オンラインショップ</h3>
                             <p class="shop-description">青山フラワーマーケット オンラインショップは、「Living With Flowers Every Day」をコンセプトに、花や緑に囲まれた心ゆたかなライフスタイルを提案するフラワーショップの通販サイトです。店舗は日本、およびパリ、ロンドン合わせ約100店舗あり、花に囲まれた毎日を提供できるお店作りをしております。オンラインショップでもご自宅用のデイリーの花から、誕生日、記念日などのイベントのフラワーギフト、そして母の日などの季節の贈り物まで、様々な用途にご利用いただける花をご用意しております。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 2.00%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2485,7 +2786,7 @@
                             <h3 class="shop-name">ハーモニック公式サイト</h3>
                             <p class="shop-description">業界トップクラスの品揃え＆高品質でご満足いただけるカタログギフトです。 ご用途や贈り先様のお好みに合わせて20種類以上のカタログギフトをご用意。 さらにカタログギフトはすべて全国送料無料！豊富なラッピング・のし・挨拶状・手提げ袋などすべて無料でご利用いただけます。会員登録特典やご購入金額の５％を還元するお得なポイントシステムもあります。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">ご購入で 3.20%</span>
+                                <span class="reward-rate">ご購入で <span class="rate-number">3.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2504,7 +2805,7 @@
                             <h3 class="shop-name">レゴランド・ディスカバリー・センター大阪</h3>
                             <p class="shop-description">レゴランド・ディスカバリー・センター大阪のオンライン予約サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 4.80%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">4.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2513,7 +2814,7 @@
                             <h3 class="shop-name">くまポン</h3>
                             <p class="shop-description">半額あたりまえ！お得なクーポンサイト「くまポンbyGMO」は、レストラン、居酒屋、温泉旅館、ホテル、エステ、ネイルサロン、ヘアサロン、などの店舗で使えるクーポンと自宅にお届けする、宅配グルメ、コスメ、サプリメント、電化製品などのクーポンを半額以上の割引で販売ているクーポンサイトです。毎日お昼12時に新しいクーポンが登場します！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入完了で 0.72%</span>
+                                <span class="reward-rate">購入完了で <span class="rate-number">0.72</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2522,7 +2823,7 @@
                             <h3 class="shop-name">asoview!(アソビュー)</h3>
                             <p class="shop-description">北海道から沖縄まで、日本全国のレジャーを620種類・2.6万プラン取り揃えた遊び・体験の予約サイトです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約後プラン随行で 0.40%</span>
+                                <span class="reward-rate">予約後プラン随行で <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2541,7 +2842,7 @@
                             <h3 class="shop-name">U-NEXT 日本最大級の動画配信サービス</h3>
                             <p class="shop-description">ネットで動画を観るならU-NEXT（ユーネクスト）！映画、ドラマ、アニメが充実のラインアップ。TV放送中のアニメやドラマの見逃し配信・ダウンロード視聴可能・1契約で4アカウント作れる・スマホ/PC/TV/ゲーム機対応・配信本数130000本以上。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">会員登録で 312点</span>
+                                <span class="reward-rate">会員登録で <span class="rate-number">312</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2560,7 +2861,7 @@
                             <h3 class="shop-name">ラクスル　印刷のことなら格安・激安の印刷通販</h3>
                             <p class="shop-description">ネット印刷のラクスルです。テレビCMでもおなじみのラクスルはネットで簡単に印刷物を注文できる印刷通販サイトです。24時間注文受付、全国送料無料、充実のカスタマーサポートと初心者でも使いやすく顧客満足度No.1を頂いています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.80%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2569,7 +2870,7 @@
                             <h3 class="shop-name">リクナビ派遣</h3>
                             <p class="shop-description">リクナビ派遣は、リクルートが運営する人材派遣、人材派遣会社のお仕事・求人情報サイト！全国30000件以上の人材派遣の情報から、【未経験OK】【時給1600円以上】【オフィスワーク】【残業なし】などの条件であなたにピッタリのお仕事が探せます！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">仕事エントリーで 636点</span>
+                                <span class="reward-rate">仕事エントリーで <span class="rate-number">636</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2578,7 +2879,7 @@
                             <h3 class="shop-name">フレッツ光｜NTT東日本お申し込み</h3>
                             <p class="shop-description">NTTフレッツ光(NTT東日本）のインターネットは、光回線の安定の高速通信と、光電話などの豊富なオプション・サービス、公式や当サイト限定のキャンペーンでお得にお申込みできます。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">加入申し込みで 10000点</span>
+                                <span class="reward-rate">加入申し込みで <span class="rate-number">10,000</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2587,7 +2888,7 @@
                             <h3 class="shop-name">【買取】古本、CD、DVD、ゲーム買取【もったいない本舗】</h3>
                             <p class="shop-description">●古本・CD・DVD買取サイト【もったいない本舗】 引越し、お部屋の整理、事務所移転の方お手伝いをさせて頂きます。 家の中に眠っている古本やCD、DVD現金にしませんか～読み終わった古本、聴きあきたCD、見飽きたDVD買い取りします!</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">初回買取成立で 254点</span>
+                                <span class="reward-rate">初回買取成立で <span class="rate-number">254</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2596,7 +2897,7 @@
                             <h3 class="shop-name">カメラのキタムラ (中古カメラ買取り)</h3>
                             <p class="shop-description">北海道から沖縄まで全国1000店の専門チェーン「カメラのキタムラ」だから安心です。デジタルカメラ・デジタル一眼レフ・交換レンズ・ブランド時計の買取りを行っています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">買取完了で 76点</span>
+                                <span class="reward-rate">買取完了で <span class="rate-number">76</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2605,7 +2906,7 @@
                             <h3 class="shop-name">【アールワイレンタル】R&amp;Y Rental</h3>
                             <p class="shop-description">日本最大のスーツケースレンタル専門サイトです。 リモワ、サムソナイト、プロテカなど 人気ブランドスーツケースを豊富に取り揃えており、在庫数は7,000個以上！ 往復送料無料＆即日発送＆無償保証の安心サービス付きで はじめてのお客様にもご好評を頂いております 。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">申込完了で 4.00%</span>
+                                <span class="reward-rate">申込完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2614,7 +2915,7 @@
                             <h3 class="shop-name">軒先パーキング</h3>
                             <p class="shop-description">軒先パーキングは事前に駐車場を予約して当日スマートにドライブ・おでかけを楽しむことができるサービスです。 車でお出かけする方向け全般、特に駐車場が混雑してそうな施設にお出かけ予定のある方などにピッタリです。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">予約完了で 1.90%</span>
+                                <span class="reward-rate">予約完了で <span class="rate-number">1.90</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2623,7 +2924,7 @@
                             <h3 class="shop-name">東邦ガス</h3>
                             <p class="shop-description">愛知・岐阜・三重に引越し予定の皆様。 Club TOHOGAS会員なら、毎月のガス・電気のお支払いに応じて「がすてきポイント」がどんどん貯まります。ガス電気代金の支払いは勿論、商品への交換やプレゼント応募、提携ポイント・電子マネーにも交換可能です。毎月15日に抽選でデジタルギフトなどの賞品が当たる「がすてきくじ」も配信中！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">申込み完了で 3192点</span>
+                                <span class="reward-rate">申込み完了で <span class="rate-number">3,192</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2642,7 +2943,7 @@
                             <h3 class="shop-name">ブランディア公式オークション</h3>
                             <p class="shop-description">CMでおなじみブランディア（Brandear）の通販サイト「ブランディア オークション」。ブランドの「洋服」「バッグ」「財布」「腕時計」「アクセサリー」など、中古・古着を常時30万点以上出品。毎日更新する商品は全て自社の直接買取だから安心。激安価格も豊富！</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">購入金額の 0.40%</span>
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.40</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2661,7 +2962,7 @@
                             <h3 class="shop-name">バリューコマース株式会社(ECサイト募集)</h3>
                             <p class="shop-description">日本初のアフィリエイト・サービス・プロバイダー（ASP）で、これまでに多くのアフィリエイターにご利用いただいています。延べ75万を超えるアフィリエイトサイトが登録する、国内最大級のアフィリエイトネットワークとなっています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">お申込み完了で 14000点</span>
+                                <span class="reward-rate">お申込み完了で <span class="rate-number">14,000</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2670,7 +2971,7 @@
                             <h3 class="shop-name">株式会社インターリンク</h3>
                             <p class="shop-description">「最大2ヶ月無料」「即利用」「いつでも解約できる」最大2カ月の無料お試しができるフレッツ対応インターネットプロバイダ</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">お申込みで最大 24000点</span>
+                                <span class="reward-rate">お申込みで最大 <span class="rate-number">24,000</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -2679,7 +2980,7 @@
                             <h3 class="shop-name">バリューコマース　アフィリエイト新規会員募集</h3>
                             <p class="shop-description">日本初のアフィリエイト・サービス・プロバイダー（ASP）で、これまでに多くのアフィリエイターにご利用いただいています。延べ75万を超えるアフィリエイトサイトが登録する、国内最大級のアフィリエイトネットワークとなっています。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">登録完了で最大 400点</span>
+                                <span class="reward-rate">登録完了で最大 <span class="rate-number">400</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 

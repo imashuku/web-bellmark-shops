@@ -14,6 +14,25 @@ with open('shops_data.json', 'r', encoding='utf-8') as f:
 # 総店舗数を自動計算
 total_shops = sum(len(shops) for shops in shops_data.values())
 
+# 高還元ショップTOP10を抽出（%と点を別々に）
+all_shops_percent = []
+all_shops_points = []
+for category, shops in shops_data.items():
+    for shop in shops:
+        if shop['interest_rate']:
+            shop_data = {
+                **shop,
+                'category': category,
+                'rate_float': float(shop['interest_rate'])
+            }
+            if shop['ir_unit'] == '%':
+                all_shops_percent.append(shop_data)
+            elif shop['ir_unit'] == '点':
+                all_shops_points.append(shop_data)
+
+top_shops_percent = sorted(all_shops_percent, key=lambda x: x['rate_float'], reverse=True)[:10]
+top_shops_points = sorted(all_shops_points, key=lambda x: x['rate_float'], reverse=True)[:10]
+
 # HTMLを生成
 html_content = '''<!DOCTYPE html>
 <html lang="ja">
@@ -211,16 +230,117 @@ html_content = '''<!DOCTYPE html>
         }
 
         .shop-reward {
-            background-color: #f5f5f5;
-            padding: 10px 12px;
-            border-radius: 4px;
-            text-align: center;
+            padding: 12px 0 0;
+            border-top: 1px solid #eee;
         }
 
         .reward-rate {
+            color: #1a1a1a;
+            font-size: 0.8125rem;
+        }
+
+        .reward-rate .rate-number {
+            color: #c41e3a;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .reward-rate .rate-unit {
             color: #c41e3a;
             font-weight: 600;
-            font-size: 0.9375rem;
+            font-size: 1rem;
+        }
+
+        /* 高還元ショップセクション */
+        .top-shops-section {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .top-shops-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .top-shops-column .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .top-shops-column .section-desc {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .top-shops-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .top-shop-card {
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            padding: 12px 16px;
+            transition: border-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-shop-card:hover {
+            border-color: #1e3a5f;
+        }
+
+        .top-shop-rank {
+            font-size: 0.75rem;
+            color: #888;
+            min-width: 32px;
+        }
+
+        .top-shop-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .top-shop-name {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .top-shop-category {
+            font-size: 0.6875rem;
+            color: #888;
+        }
+
+        .top-shop-rate {
+            color: #c41e3a;
+            font-weight: 700;
+            font-size: 1.125rem;
+            white-space: nowrap;
+        }
+
+        .top-shop-rate .rate-unit {
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-shops-row {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
 
         /* フッター */
@@ -331,7 +451,7 @@ html_content = '''<!DOCTYPE html>
 
         /* 印刷用CSS */
         @media print {
-            header, .filter-section, .action-buttons, footer {
+            header, .filter-section, .action-buttons, footer, .top-shops-section {
                 display: none !important;
             }
 
@@ -406,6 +526,62 @@ html_content = '''<!DOCTYPE html>
                 </div>
             </div>
 
+            <!-- 高還元ショップTOP10 -->
+            <div class="top-shops-section" id="topShopsSection">
+                <div class="top-shops-row">
+                    <div class="top-shops-column">
+                        <h2 class="section-title">還元率 TOP10</h2>
+                        <p class="section-desc">購入金額に対する還元率が高いショップ</p>
+                        <div class="top-shops-list">
+'''
+
+# 還元率TOP10を生成
+for i, shop in enumerate(top_shops_percent, 1):
+    shop_name_escaped = html.escape(shop['name'])
+    category_escaped = html.escape(shop['category'])
+    rate = shop['rate_float']
+    html_content += f'''
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.{i}</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">{shop_name_escaped}</div>
+                                    <div class="top-shop-category">{category_escaped}</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">{rate:.2f}</span><span class="rate-unit">%</span></div>
+                            </div>
+'''
+
+html_content += '''
+                        </div>
+                    </div>
+                    <div class="top-shops-column">
+                        <h2 class="section-title">還元点数 TOP10</h2>
+                        <p class="section-desc">利用に対する還元点数が多いショップ</p>
+                        <div class="top-shops-list">
+'''
+
+# 還元点数TOP10を生成
+for i, shop in enumerate(top_shops_points, 1):
+    shop_name_escaped = html.escape(shop['name'])
+    category_escaped = html.escape(shop['category'])
+    rate = int(shop['rate_float'])
+    html_content += f'''
+                            <div class="top-shop-card">
+                                <div class="top-shop-rank">No.{i}</div>
+                                <div class="top-shop-info">
+                                    <div class="top-shop-name">{shop_name_escaped}</div>
+                                    <div class="top-shop-category">{category_escaped}</div>
+                                </div>
+                                <div class="top-shop-rate"><span class="rate-number">{rate:,}</span><span class="rate-unit">点</span></div>
+                            </div>
+'''
+
+html_content += '''
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="shopsContainer">
 '''
 
@@ -448,17 +624,17 @@ for category in category_order:
             is_recommended = 'recommended' if shop['is_recommend'] else ''
             recommended_badge = '<span class="recommended-badge">おすすめ</span>' if shop['is_recommend'] else ''
 
-            # 支援金情報のフォーマット
+            # 支援金情報のフォーマット（視覚的強調用にHTMLタグを使用）
             if shop['interest_rate'] and shop['ir_unit']:
                 rate = float(shop['interest_rate'])
                 if shop['ir_unit'] == '%':
                     # パーセントの場合は小数点第2位まで表示
-                    reward_info = f"{rate:.2f}%"
+                    reward_info = f'<span class="rate-number">{rate:.2f}</span><span class="rate-unit">%</span>'
                 elif shop['ir_unit'] == '点':
                     # 点数の場合は整数表示
-                    reward_info = f"{int(rate)}点"
+                    reward_info = f'<span class="rate-number">{int(rate):,}</span><span class="rate-unit">点</span>'
                 else:
-                    reward_info = f"{shop['interest_rate']}{shop['ir_unit']}"
+                    reward_info = f'<span class="rate-number">{shop["interest_rate"]}</span><span class="rate-unit">{shop["ir_unit"]}</span>'
             else:
                 reward_info = ''
 
@@ -474,7 +650,7 @@ for category in category_order:
                             <h3 class="shop-name">{html.escape(shop['name'])}</h3>
                             <p class="shop-description">{html.escape(description)}</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">{html.escape(ir_text_front)} {html.escape(reward_info)}</span>
+                                <span class="reward-rate">{html.escape(ir_text_front)} {reward_info}</span>
                             </div>
                         </div>
 '''
