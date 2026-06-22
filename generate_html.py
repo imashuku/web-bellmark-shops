@@ -4,7 +4,7 @@ import html
 # ============================================
 # 設定（毎月の更新時はここだけ変更）
 # ============================================
-CURRENT_DATE = "2025年12月現在"
+CURRENT_DATE = "2026年6月現在"
 # ============================================
 
 # JSONデータを読み込む
@@ -75,6 +75,12 @@ html_content = '''<!DOCTYPE html>
             padding: 0;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
         body {
             font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
             line-height: 1.7;
@@ -95,7 +101,7 @@ html_content = '''<!DOCTYPE html>
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             grid-template-rows: auto auto;
             gap: 16px;
         }
@@ -330,7 +336,7 @@ html_content = '''<!DOCTYPE html>
         /* ショップグリッド */
         .shops-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
             gap: 16px;
         }
 
@@ -417,7 +423,7 @@ html_content = '''<!DOCTYPE html>
         /* レスポンシブ */
         @media (max-width: 900px) {
             .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .bento-main {
@@ -445,7 +451,7 @@ html_content = '''<!DOCTYPE html>
 
         @media (max-width: 600px) {
             .bento-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .bento-main,
@@ -460,7 +466,7 @@ html_content = '''<!DOCTYPE html>
             }
 
             .shops-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 

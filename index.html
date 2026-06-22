@@ -11,6 +11,12 @@
             padding: 0;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
         body {
             font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
             line-height: 1.7;
@@ -31,7 +37,7 @@
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             grid-template-rows: auto auto;
             gap: 16px;
         }
@@ -266,7 +272,7 @@
         /* ショップグリッド */
         .shops-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
             gap: 16px;
         }
 
@@ -353,7 +359,7 @@
         /* レスポンシブ */
         @media (max-width: 900px) {
             .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .bento-main {
@@ -381,7 +387,7 @@
 
         @media (max-width: 600px) {
             .bento-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .bento-main,
@@ -396,7 +402,7 @@
             }
 
             .shops-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -546,9 +552,9 @@
                 <div class="bento-card bento-main">
                     <h1>ウェブベルマーク</h1>
                     <p class="hero-subtitle">いつものネットショッピングが、学校への支援に</p>
-                    <div class="hero-number">235</div>
+                    <div class="hero-number">222</div>
                     <div class="hero-label">提携ショップ</div>
-                    <p class="date-note">2025年12月現在</p>
+                    <p class="date-note">2026年6月現在</p>
                 </div>
 
                 <!-- 還元率TOP5 -->
@@ -560,6 +566,15 @@
                         <div class="ranking-item">
                             <div class="ranking-num">1</div>
                             <div class="ranking-info">
+                                <div class="ranking-name">ヒト幹細胞美容液販売サイト【バイオステム】</div>
+                                <div class="ranking-category">美容・コスメ・健康</div>
+                            </div>
+                            <div class="ranking-rate">8.00<span class="unit">%</span></div>
+                        </div>
+
+                        <div class="ranking-item">
+                            <div class="ranking-num">2</div>
+                            <div class="ranking-info">
                                 <div class="ranking-name">ノートンストア</div>
                                 <div class="ranking-category">家電・PC・カメラ</div>
                             </div>
@@ -567,7 +582,7 @@
                         </div>
 
                         <div class="ranking-item">
-                            <div class="ranking-num">2</div>
+                            <div class="ranking-num">3</div>
                             <div class="ranking-info">
                                 <div class="ranking-name">北欧デザインのカーテン、ラグ、マット専門店【cucan クーカン】</div>
                                 <div class="ranking-category">インテリア・生活雑貨・ペット用品</div>
@@ -576,7 +591,7 @@
                         </div>
 
                         <div class="ranking-item">
-                            <div class="ranking-num">3</div>
+                            <div class="ranking-num">4</div>
                             <div class="ranking-info">
                                 <div class="ranking-name">ウイルスバスター公式トレンドマイクロ・オンラインショップ</div>
                                 <div class="ranking-category">家電・PC・カメラ</div>
@@ -585,19 +600,10 @@
                         </div>
 
                         <div class="ranking-item">
-                            <div class="ranking-num">4</div>
+                            <div class="ranking-num">5</div>
                             <div class="ranking-info">
                                 <div class="ranking-name">データの復旧・移行・抹消・セキュリティソフト直販サイト「AOSストア」</div>
                                 <div class="ranking-category">家電・PC・カメラ</div>
-                            </div>
-                            <div class="ranking-rate">5.72<span class="unit">%</span></div>
-                        </div>
-
-                        <div class="ranking-item">
-                            <div class="ranking-num">5</div>
-                            <div class="ranking-info">
-                                <div class="ranking-name">ピアス専門店グリーンピアッシング</div>
-                                <div class="ranking-category">ファッション・アパレル</div>
                             </div>
                             <div class="ranking-rate">5.72<span class="unit">%</span></div>
                         </div>
@@ -694,7 +700,7 @@
                 <div class="category-section" data-category="総合通販・百貨店">
                     <div class="category-header">
                         <h2>総合通販・百貨店</h2>
-                        <span class="shop-count">27件</span>
+                        <span class="shop-count">25件</span>
                     </div>
                     <div class="shops-grid">
 
@@ -729,15 +735,6 @@
                             
                             <h3 class="shop-name">おうちでイオン イオンショップ</h3>
                             <p class="shop-description">イオン（AEON）のお中元、お歳暮、母の日ギフトをはじめ、カタログ掲載品、WEB限定品などお店にない品もネットで取り扱っています。お近くにイオンのお店がなくてもご利用いただけます。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入金額の <span class="rate-number">0.81</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="カタログ通販のセシール(cecile)">
-                            
-                            <h3 class="shop-name">カタログ通販のセシール(cecile)</h3>
-                            <p class="shop-description">セシールのオンラインショップでは、下着、アウターから家具や生活雑貨、美容と健康グッズまで豊富な商品ラインナップ。初めてのご注文は全商品送料無料ほか、ポイントサービスや豊富なお支払い方法でお手軽・安心なショッピングをお楽しみください。</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入金額の <span class="rate-number">0.81</span><span class="rate-unit">%</span></span>
                             </div>
@@ -836,7 +833,7 @@
                         <div class="shop-card " data-name="ダイエーネットショッピング">
                             
                             <h3 class="shop-name">ダイエーネットショッピング</h3>
-                            <p class="shop-description">ダイエーネットショッピング（daiei）では、母の日・父の日・お中元・お歳暮からクリスマスケーキ・おせちなどのシーズンギフトの承りを致しております。また、お返しギフトとして最適な暮らしの贈り物SHOPにおいては全国無料配達にて承りをしております。その他、旬ギフトや産直米などその季節に是非食したい商品を取りそろえ生産地直送にてお届けをさせて頂いております</p>
+                            <p class="shop-description">ダイエーネットショッピングでは、母の日・父の日・お中元・お歳暮からクリスマスケーキ・おせちなどのシーズンギフトの商品をお取り扱いしております。</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入金額の <span class="rate-number">0.83</span><span class="rate-unit">%</span></span>
                             </div>
@@ -875,15 +872,6 @@
                             <p class="shop-description">大人の男女へのライフスタイル提案型セレクトショップ!刺激的なアイテムを厳選しております。</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">ご購入で <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="激安！家電のタンタンショップ">
-                            
-                            <h3 class="shop-name">激安！家電のタンタンショップ</h3>
-                            <p class="shop-description">家電のタンタンショップは７０年の実績を持った家電販売チェーンのインターネット事業として運営しています。 永年の家電販売の経験を生かして仕入れ努力やローコスト運営物流ノウハウにより一流メーカーの家電品を お安く全国の方々に提供しています。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">ご購入で <span class="rate-number">0.76</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -975,18 +963,9 @@
                 <div class="category-section" data-category="教育・学習サービス">
                     <div class="category-header">
                         <h2>教育・学習サービス</h2>
-                        <span class="shop-count">7件</span>
+                        <span class="shop-count">6件</span>
                     </div>
                     <div class="shops-grid">
-
-                        <div class="shop-card " data-name="スタディサプリ小学講座・中学講座">
-                            
-                            <h3 class="shop-name">スタディサプリ小学講座・中学講座</h3>
-                            <p class="shop-description">「スタディサプリ小学講座・中学講座」は、リクルートが提供する、勉強が難しくなる小学校4年生から、中学生の定期テスト・高校受験対策までカバーする、お子さまの成績アップのためのオンライン学習サービスです。 小学・中学・高校、大学受験まで5教科18科目1万本を超える講義動画がPC、スマホで見放題となっております。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">初回申込時に <span class="rate-number">936</span><span class="rate-unit">点</span></span>
-                            </div>
-                        </div>
 
                         <div class="shop-card " data-name="進研ゼミ・こどもちゃれんじ（新規入会申込）">
                             
@@ -1048,7 +1027,7 @@
                 <div class="category-section" data-category="本・音楽・ゲーム">
                     <div class="category-header">
                         <h2>本・音楽・ゲーム</h2>
-                        <span class="shop-count">19件</span>
+                        <span class="shop-count">16件</span>
                     </div>
                     <div class="shops-grid">
 
@@ -1106,15 +1085,6 @@
                             </div>
                         </div>
 
-                        <div class="shop-card " data-name="book☆walker（ブックウォーカー）">
-                            
-                            <h3 class="shop-name">BOOK☆WALKER（ブックウォーカー）</h3>
-                            <p class="shop-description">電子書籍を読むならKADOKAWA直営の電子書籍ストアBOOK☆WALKER（ブックウォーカー）。ライトノベル、マンガ、新書、実用書、写真集、雑誌など。Android、iPhoneアプリ、PC、タブレットなど、様々な端末で利用可能！</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入金額の <span class="rate-number">1.28</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
                         <div class="shop-card " data-name="国内最大級の総合電子書籍ストア　ブックライブ">
                             
                             <h3 class="shop-name">国内最大級の総合電子書籍ストア　ブックライブ</h3>
@@ -1160,15 +1130,6 @@
                             </div>
                         </div>
 
-                        <div class="shop-card " data-name="book☆walker　マンガ・雑誌読み放題サービス">
-                            
-                            <h3 class="shop-name">BOOK☆WALKER　マンガ・雑誌読み放題サービス</h3>
-                            <p class="shop-description">BOOK☆WALKERマンガ・雑誌読み放題はKADOKAWA直営のアニメ・ゲーム雑誌などが読み放題になる定額読み放題サービスです。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">会員登録で <span class="rate-number">400</span><span class="rate-unit">点</span></span>
-                            </div>
-                        </div>
-
                         <div class="shop-card " data-name="ぷりんと楽譜">
                             
                             <h3 class="shop-name">ぷりんと楽譜</h3>
@@ -1184,15 +1145,6 @@
                             <p class="shop-description">人気コミックタイトル全巻セットがズラリ。新品コミック全巻セット専門店です。</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="colleize(コレイズ）">
-                            
-                            <h3 class="shop-name">colleize(コレイズ）</h3>
-                            <p class="shop-description">公式グッズ・公式ライセンス商品専門ECサイトです。 「鬼滅の刃」や「東京リベンジャーズ」などの人気コンテンツをはじめ、ドラクエ、FF、どうぶつの森などのゲームグッズ、ぬいぐるみ、フィギュア等、様々な商品を扱っております。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1284,9 +1236,18 @@
                 <div class="category-section" data-category="ファッション・アパレル">
                     <div class="category-header">
                         <h2>ファッション・アパレル</h2>
-                        <span class="shop-count">24件</span>
+                        <span class="shop-count">23件</span>
                     </div>
                     <div class="shops-grid">
+
+                        <div class="shop-card " data-name="カタログ通販「セシール」の公式オンラインショップ">
+                            
+                            <h3 class="shop-name">カタログ通販「セシール」の公式オンラインショップ</h3>
+                            <p class="shop-description">カタログ通販のセシール（cecile）が運営する、衣料品を中心とした総合ショッピングサイトです。 インナー、レディース・メンズ・ティーンズファッション、寝具・インテリア雑貨、美容・健康まで豊富な商品ラインナップで多数の商品を取り揃えています。 初めてのご注文は送料無料、WEB限定キャンペーンやシーズンセールも随時開催しています。</p>
+                            <div class="shop-reward">
+                                <span class="reward-rate">購入金額の <span class="rate-number">0.80</span><span class="rate-unit">%</span></span>
+                            </div>
+                        </div>
 
                         <div class="shop-card " data-name="nyオンライン">
                             
@@ -1468,28 +1429,10 @@
                             </div>
                         </div>
 
-                        <div class="shop-card " data-name="【calif】人気ストリートファッションブランドの公式通販">
-                            
-                            <h3 class="shop-name">【calif】人気ストリートファッションブランドの公式通販</h3>
-                            <p class="shop-description">人気ストリートファッションブランドの公式通販サイト「calif」。 XLARGE、X-girl、MILKFED.、SILAS、Styles、DISPATCHER NO.8 など複数ブランド取り扱い。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
                         <div class="shop-card " data-name="wego online store">
                             
                             <h3 class="shop-name">WEGO ONLINE STORE</h3>
                             <p class="shop-description">若者に人気のメンズ・レディース アイテムを取り扱うファッションブランドWEGOの公式オンラインショップです。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="guess japan公式オンラインストア">
-                            
-                            <h3 class="shop-name">GUESS JAPAN公式オンラインストア</h3>
-                            <p class="shop-description">1981年にジーンズブランドとして始まったGUESSは、ブランド創設43周年を迎えました。  ヨーロピアン・スタイルとアイコニックなビジュアルでグローバル・ライフスタイルブランドと成長し、トータルコレクションを世界80カ国以上で1500以上の店舗で展開しています。</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
                             </div>
@@ -1510,7 +1453,7 @@
                 <div class="category-section" data-category="食品・飲料・グルメ予約">
                     <div class="category-header">
                         <h2>食品・飲料・グルメ予約</h2>
-                        <span class="shop-count">16件</span>
+                        <span class="shop-count">15件</span>
                     </div>
                     <div class="shops-grid">
 
@@ -1565,15 +1508,6 @@
                             <p class="shop-description">全国のグルメ情報、レストラン・居酒屋のネット予約は、ホットペッパーグルメ（HOT PEPPER）！ネット予約なら、いつでもどこでも簡単予約！予約人数に応じてポイントもたまります。</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">1件予約時に <span class="rate-number">44</span><span class="rate-unit">点</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="ブルーボトルコーヒー公式オンラインストア">
-                            
-                            <h3 class="shop-name">ブルーボトルコーヒー公式オンラインストア</h3>
-                            <p class="shop-description">ブルーボトルコーヒーの公式オンラインストアです。すべてのお客様においしいコーヒーを届けることをミッションに、厳選したスペシャルティコーヒー・オリジナルグッズ・ギフト等を販売しています。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入金額の <span class="rate-number">2.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -1664,9 +1598,18 @@
                 <div class="category-section" data-category="美容・コスメ・健康">
                     <div class="category-header">
                         <h2>美容・コスメ・健康</h2>
-                        <span class="shop-count">18件</span>
+                        <span class="shop-count">17件</span>
                     </div>
                     <div class="shops-grid">
+
+                        <div class="shop-card " data-name="ヒト幹細胞美容液販売サイト【バイオステム】">
+                            
+                            <h3 class="shop-name">ヒト幹細胞美容液販売サイト【バイオステム】</h3>
+                            <p class="shop-description">再生医療発想のスキンケアで話題の幹細胞エクソソーム美容液【VAIOSTEM バイオステム】を販売する公式オンラインページです。</p>
+                            <div class="shop-reward">
+                                <span class="reward-rate">購入金額の <span class="rate-number">8.00</span><span class="rate-unit">%</span></span>
+                            </div>
+                        </div>
 
                         <div class="shop-card " data-name="イヴ・サンローラン・ボーテ公式オンラインブティック">
                             
@@ -1701,15 +1644,6 @@
                             <p class="shop-description">DHC公式オンラインショップです。コスメ・健康食品・ダイエットサポート商品をはじめ、ファッション・インナーウェア・遺伝子検査・ペット商品・お酒・書籍までバラエティ豊かに展開中！</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入金額の <span class="rate-number">0.45</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="ファンケル マイルドクレンジングオイル">
-                            
-                            <h3 class="shop-name">ファンケル マイルドクレンジングオイル</h3>
-                            <p class="shop-description">ファンケル（FANCL）通信販売だけの特別価格！マイルドクレンジングオイルのお得なお試しセットはこちら。お支払い手数料無料。代引き手数料無料。お得なポイント制度。コンビニ支払いOK。通販初めての方送料無料。日付時間帯指定OK。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">新規申込で <span class="rate-number">678</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -1785,19 +1719,10 @@
                             </div>
                         </div>
 
-                        <div class="shop-card " data-name="メルヴィータ公式">
-                            
-                            <h3 class="shop-name">メルヴィータ公式</h3>
-                            <p class="shop-description">メルヴィータは、ロクシタン グループのフランス発の認証オーガニックのコスメブランドです。アルガンオイルをはじめとするオイル美容のパイオニアであると同時に、世界中の化粧品で初めてエコサートを取得した企業の1つで、「生きた自然をそのままに」を理念としながら、世界中からオーガニック植物成分を厳選し、肌へのアプローチを追求した製品づくりを行っています。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入完了で <span class="rate-number">2.00</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
                         <div class="shop-card " data-name="depaco">
                             
                             <h3 class="shop-name">DEPACO</h3>
-                            <p class="shop-description">株式会社大丸松坂屋百貨店が運営しております「コスメ専門オンラインストア」です。 百貨店運営オンラインショップならではの安心感！ 税込5,400円以上のお買い上げで送料無料！</p>
+                            <p class="shop-description">株式会社大丸松坂屋百貨店が運営しております「コスメ専門オンラインストア」です。 百貨店運営オンラインショップならではの安心感！ 税込3,800円以上のお買い上げで送料無料！</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入完了で <span class="rate-number">1.14</span><span class="rate-unit">%</span></span>
                             </div>
@@ -2035,34 +1960,16 @@
                 <div class="category-section" data-category="インテリア・生活雑貨・ペット用品">
                     <div class="category-header">
                         <h2>インテリア・生活雑貨・ペット用品</h2>
-                        <span class="shop-count">14件</span>
+                        <span class="shop-count">11件</span>
                     </div>
                     <div class="shops-grid">
 
                         <div class="shop-card " data-name="ロフトネットストア">
                             
                             <h3 class="shop-name">ロフトネットストア</h3>
-                            <p class="shop-description">ロフト公式ネットストア。LOFTでは文房具からコスメ、キャラクター雑貨やインテリアなどを取り扱う生活雑貨の専門店。nanacoポイントが貯まったりセブン‐イレブンでの店舗受け取りができる便利な通販サイト。</p>
+                            <p class="shop-description">ロフト公式ネットストア。LOFTでは文房具からコスメ、キャラクター雑貨やインテリアなどを取り扱う生活雑貨の専門店。セブン‐イレブンでの店舗受け取りができる便利な通販サイト。</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">購入金額の <span class="rate-number">2.43</span><span class="rate-unit">%</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="いぬのきもち・ねこのきもち">
-                            
-                            <h3 class="shop-name">いぬのきもち・ねこのきもち</h3>
-                            <p class="shop-description">愛犬・愛猫と飼い主さんの関係がもっと深く、毎日が楽しくなりますように、毎月お届けする生活総合雑誌です。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購読申し込み（1か月払い）で <span class="rate-number">120</span><span class="rate-unit">点</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="ペットゴー　公式オンラインストア">
-                            
-                            <h3 class="shop-name">ペットゴー　公式オンラインストア</h3>
-                            <p class="shop-description">ペットゴー（petgo）は「ペットライフをハッピーに！世の中をあったかく！」 をコンセプトに愛犬・愛猫、飼い主様へ様々な商品・サービスをお届けしております。 弊社の特徴は非常に高い購入率とリピート率です。 ■犬・猫の療法食が送料無料商品多数 ■ノミ・マダニ駆除薬のフロントラインプラスなどの医薬品が大幅割引で販売中 ■16時までの配送で当日発送商品多数取り扱い</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入金額の <span class="rate-number">1.20</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2117,15 +2024,6 @@
                             <p class="shop-description">畳の製造で日本一「三条たたみ」の畳張り替え。TVCM放送中!</p>
                             <div class="shop-reward">
                                 <span class="reward-rate">ご購入で <span class="rate-number">2,667</span><span class="rate-unit">点</span></span>
-                            </div>
-                        </div>
-
-                        <div class="shop-card " data-name="グリーンパン オフィシャルショップ">
-                            
-                            <h3 class="shop-name">グリーンパン オフィシャルショップ</h3>
-                            <p class="shop-description">世界で初めてフッ素樹脂を使わないフライパンを開発したベルギー生まれの「グリーンパン」公式オンラインショップです。 良質な食材を選ぶように、調理器具にもこだわって欲しい。 地球にやさしい、エコなフライパンです。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">購入完了で <span class="rate-number">4.00</span><span class="rate-unit">%</span></span>
                             </div>
                         </div>
 
@@ -2722,18 +2620,9 @@
                 <div class="category-section" data-category="フラワー・ギフト">
                     <div class="category-header">
                         <h2>フラワー・ギフト</h2>
-                        <span class="shop-count">7件</span>
+                        <span class="shop-count">6件</span>
                     </div>
                     <div class="shops-grid">
-
-                        <div class="shop-card " data-name="ゼクシィ内祝い">
-                            
-                            <h3 class="shop-name">ゼクシィ内祝い</h3>
-                            <p class="shop-description">結婚内祝いは、大切な両親・親戚・同僚・友人などからいただいた結婚祝いへのお返しです。そんな大切な内祝いをしっかり準備して贈れるのが、結婚するすべての人を応援するゼクシィがプロデュースした「ゼクシィ結婚内祝い」です。</p>
-                            <div class="shop-reward">
-                                <span class="reward-rate">ご購入で <span class="rate-number">200</span><span class="rate-unit">点</span></span>
-                            </div>
-                        </div>
 
                         <div class="shop-card " data-name="シャディ ギフトモール">
                             
@@ -2841,7 +2730,7 @@
                             <h3 class="shop-name">U-NEXT 日本最大級の動画配信サービス</h3>
                             <p class="shop-description">ネットで動画を観るならU-NEXT（ユーネクスト）！映画、ドラマ、アニメが充実のラインアップ。TV放送中のアニメやドラマの見逃し配信・ダウンロード視聴可能・1契約で4アカウント作れる・スマホ/PC/TV/ゲーム機対応・配信本数130000本以上。</p>
                             <div class="shop-reward">
-                                <span class="reward-rate">会員登録で <span class="rate-number">312</span><span class="rate-unit">点</span></span>
+                                <span class="reward-rate">会員登録で <span class="rate-number">480</span><span class="rate-unit">点</span></span>
                             </div>
                         </div>
 
@@ -3042,7 +2931,7 @@
 
     <script>
         // 印刷用の日付（Pythonから埋め込み）
-        const PRINT_DATE = "2025年12月現在";
+        const PRINT_DATE = "2026年6月現在";
 
         function filterShops() {
             const searchText = document.getElementById('searchBox').value.toLowerCase();

@@ -83,7 +83,7 @@ def fix_csv(input_file, output_file):
     print(f"有効レコード数 (is_valid=1 & delete_flag=0): {valid_count}")
 
 if __name__ == "__main__":
-    input_file = '20251210_companies.csv'
-    output_file = '20251210_companies_fixed.csv'
+    input_file = 'Companies Jun 8 2026.csv'
+    output_file = '20260608_companies_fixed.csv'
 
     fix_csv(input_file, output_file)
