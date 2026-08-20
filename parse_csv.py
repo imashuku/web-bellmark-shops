@@ -2,7 +2,7 @@ import csv
 import json
 from collections import defaultdict
 
-def parse_shops():
+def parse_shops(csv_path='20260810_companies_fixed.csv'):
     categories = {
         1: "インテリア・生活雑貨・ペット用品",
         2: "買取・中古品販売",
@@ -26,7 +26,7 @@ def parse_shops():
     
     shops_by_category = defaultdict(list)
     
-    with open('20260810_companies_fixed.csv', 'r', encoding='utf-8') as file:
+    with open(csv_path, 'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
             if row['is_valid'] == '1' and row['delete_flag'] == '0':
@@ -64,7 +64,9 @@ def parse_shops():
     return dict(shops_by_category)
 
 if __name__ == "__main__":
-    shops = parse_shops()
+    import sys
+    csv_path = sys.argv[1] if len(sys.argv) > 1 else '20260810_companies_fixed.csv'
+    shops = parse_shops(csv_path)
     with open('shops_data.json', 'w', encoding='utf-8') as f:
         json.dump(shops, f, ensure_ascii=False, indent=2)
     

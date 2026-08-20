@@ -83,7 +83,8 @@ def fix_csv(input_file, output_file):
     print(f"有効レコード数 (is_valid=1 & delete_flag=0): {valid_count}")
 
 if __name__ == "__main__":
-    input_file = '20260810_companies.csv'
-    output_file = '20260810_companies_fixed.csv'
+    import sys
+    input_file = sys.argv[1] if len(sys.argv) > 1 else '20260810_companies.csv'
+    output_file = sys.argv[2] if len(sys.argv) > 2 else input_file.replace('.csv', '_fixed.csv')
 
     fix_csv(input_file, output_file)
