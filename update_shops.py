@@ -23,6 +23,7 @@ generate_html.py の日付を、毎月4か所書き換えていた）。
 """
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -74,7 +75,20 @@ def previous_total() -> int | None:
         return None
 
 
-def run_check() -> int:
+def source_label(src: Path, override: str | None = None) -> str:
+    """Reuse an explicitly supplied label only for the same unchanged source."""
+    if override:
+        return override
+    meta_path = HERE / "shops_source.json"
+    if meta_path.exists():
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        digest = hashlib.sha256(src.read_bytes()).hexdigest()
+        if meta.get("source") == src.name and meta.get("sha256") == digest:
+            return meta["label"]
+    return date_label(CSV_RE.match(src.name).group(1))
+
+
+def run_check(label: str | None = None) -> int:
     """生成せずに、いま本番へ出ている中身の整合だけ見る。"""
     idx = HERE / "index.html"
     data = HERE / "shops_data.json"
@@ -88,7 +102,7 @@ def run_check() -> int:
     print(f"index.html のサイズ: {idx.stat().st_size:,} bytes")
     latest = find_latest_csv()
     stamp = CSV_RE.match(latest.name).group(1)
-    want = date_label(stamp)
+    want = source_label(latest, label)
     if m and m.group(1) != want:
         print(f"\n🟠 最新CSV {latest.name} は「{want}」ですが、index.html は「{m.group(1)}」のままです。")
         return 1
@@ -101,12 +115,13 @@ def main() -> int:
     ap.add_argument("csv", nargs="?", help="取り込むCSV（省略時は最新の YYYYMMDD_companies.csv）")
     ap.add_argument("--deploy", action="store_true", help="生成が通ったら vercel --prod --yes まで実行")
     ap.add_argument("--check", action="store_true", help="生成せず、いまの状態だけ点検して終わる")
+    ap.add_argument("--label", help="表示する対象月・提供日（CSV日付と対象月が異なる場合）")
     args = ap.parse_args()
 
     os.chdir(HERE)
 
     if args.check:
-        return run_check()
+        return run_check(args.label)
 
     src = Path(args.csv) if args.csv else find_latest_csv()
     if not src.is_absolute():
@@ -118,7 +133,7 @@ def main() -> int:
     if not m:
         die(f"CSVのファイル名が `YYYYMMDD_companies.csv` の形式ではありません: {src.name}")
     stamp = m.group(1)
-    label = date_label(stamp)
+    label = source_label(src, args.label)
     fixed = HERE / f"{stamp}_companies_fixed.csv"
 
     print(f"■ 取り込むCSV : {src.name}")
@@ -172,6 +187,13 @@ def main() -> int:
     if label not in html:
         die(f"index.html に「{label}」が入っていません。generate_html.py の差し込み先を確認してください。")
     print(f"  index.html: {len(html.encode('utf-8')):,} bytes ／ 日付「{label}」を確認")
+
+    (HERE / "shops_source.json").write_text(json.dumps({
+        "source": src.name,
+        "sha256": hashlib.sha256(src.read_bytes()).hexdigest(),
+        "label": label,
+        "total": total,
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print("\n✅ 生成完了")
     print(f"   {src.name} → {fixed.name} → shops_data.json → index.html")
